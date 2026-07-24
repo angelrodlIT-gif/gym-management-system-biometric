@@ -1,0 +1,28 @@
+﻿<Window x:Class="Sistema_Gimnasio.SistemaAcceso"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+
+        xmlns:local="clr-namespace:Sistema_Gimnasio"
+        mc:Ignorable="d"
+        Title="SistemaAcceso" Height="600" Width="542">
+    <Grid Margin="0,0,27,-6" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="20,20,20,20">
+            <TextBlock Text="Escanee su huella digital" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+            <!-- Aquí iría la imagen de la huella y detalles -->
+            <Grid>
+                <wfi:WindowsFormsHost Name="winFormsHost" />
+            </Grid>
+            <TextBlock x:Name="txtNombre" Text="Nombre:  " FontSize="18"/>
+            <TextBlock x:Name="txtMembresia" Text="Membresia:  " FontSize="14"/>
+            <TextBlock x:Name="txtFechaFin" Text="Fecha Fin:  " FontSize="14"/>
+            <TextBlock x:Name="txtEstado"  FontSize="14" Text="Estado:  "/>
+        </StackPanel>
+    </Grid>
+</Window>

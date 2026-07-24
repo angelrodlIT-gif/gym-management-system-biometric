@@ -1,0 +1,613 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\repos\\Sistema_Gimnasio\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\pagos_conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\visitas_conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\visitas_agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\pagos_agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\miembros_conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\miembros_agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\membresias_conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|..\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|d:\\repos\\gym_system.core\\gym_system.core\\membresias_agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\miembrosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\miembrosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\formagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\pagosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\inicioview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\inicioview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\sistemaacceso.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\sistemaacceso.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\formagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\inicioview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\inicioview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\sistemaacceso.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\sistemaacceso.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\pagosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\repos\\Sistema_Gimnasio\\biometricapp\\biometricapp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\visitasview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\visitasview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\pagobutwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagobutwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\membresiaswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\membresiaswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\formeditar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formeditar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\pagobutwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagobutwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\visitasview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\visitasview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\membresiaswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\membresiaswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\miembrosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\miembrosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\repos\\Sistema_Gimnasio\\sistema_gimnasio\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Pagos_conexion.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Pagos_conexion.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Pagos_conexion.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Pagos_conexion.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Pagos_conexion.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAowBYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T21:52:36.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Miembros_agregar.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Miembros_agregar.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Miembros_agregar.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Miembros_agregar.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Miembros_agregar.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T08:15:58.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Pagos_agregar.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T03:48:26.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Miembros_Conexion.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Miembros_Conexion.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Miembros_Conexion.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Miembros_Conexion.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Miembros_Conexion.cs",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAIwM4AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T05:12:00.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Visitas_agregar.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Visitas_agregar.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Visitas_agregar.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Visitas_agregar.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Visitas_agregar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T08:11:43.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Visitas_conexion.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Visitas_conexion.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Visitas_conexion.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Visitas_conexion.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Visitas_conexion.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwEoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T08:14:54.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Membresias_conexion.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Membresias_conexion.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Membresias_conexion.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Membresias_conexion.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Membresias_conexion.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAkwC0AAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T05:12:44.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Membresias_agregar.cs",
+              "DocumentMoniker": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Membresias_agregar.cs",
+              "RelativeDocumentMoniker": "..\\Gym_System.Core\\Gym_System.Core\\Membresias_agregar.cs",
+              "ToolTip": "D:\\repos\\Gym_System.Core\\Gym_System.Core\\Membresias_agregar.cs",
+              "RelativeToolTip": "..\\Gym_System.Core\\Gym_System.Core\\Membresias_agregar.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T08:24:08.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MiembrosView.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MiembrosView.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MiembrosView.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MiembrosView.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\MiembrosView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T06:43:37.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MainWindow.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MainWindow.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T06:42:57.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwBoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T06:43:07.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PagosView.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagosView.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagosView.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagosView.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagosView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T05:44:04.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InicioView.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\InicioView.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\InicioView.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\InicioView.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\InicioView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T07:00:50.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormAgregar.cs [Design]",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\FormAgregar.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormAgregar.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\FormAgregar.cs [Design]",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormAgregar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T08:22:25.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SistemaAcceso.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\SistemaAcceso.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\SistemaAcceso.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\SistemaAcceso.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\SistemaAcceso.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-13T05:03:09.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SistemaAcceso.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T05:03:13.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PagoButWindow.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagoButWindow.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagoButWindow.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagoButWindow.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagoButWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T06:40:38.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UCVerifyFingerprint.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "ViewState": "AgIAAI8BAAAAAAAAAAAmwK8BAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T01:09:01.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "InicioView.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\InicioView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\InicioView.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\InicioView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\InicioView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:27:14.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "frmDBEnrollment.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAkwAQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T01:07:40.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "frmDBEnrollment.cs [Design]",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs [Design]",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:47:44.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FormAgregar.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\FormAgregar.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormAgregar.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\FormAgregar.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormAgregar.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAkwFsAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T08:20:30.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UCVerifyFingerprint.cs [Design]",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs [Design]",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T01:09:00.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PagosView.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagosView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagosView.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagosView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagosView.xaml.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwFUAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T03:14:09.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "VisitasView.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAlwCUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T07:53:30.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MembresiasWindow.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T07:19:36.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UCVerifyFingerprint.Designer.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAcwFUAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T22:45:20.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "frmDBVerify.cs [Design]",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs [Design]",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T04:55:38.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UCVerifyFingerprint.resx",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.resx",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.resx",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.resx",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-05-12T07:03:43.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "frmDBVerify.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "ViewState": "AgIAAGYBAAAAAAAAAAAqwHcBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:48:18.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MembresiasWindow.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAqwIwAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T08:21:50.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "MiembrosView.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADgvzsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T06:43:45.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\App.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\App.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\App.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-07T07:03:36.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\App.config",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\App.config",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\App.config",
+              "RelativeToolTip": "Sistema_Gimnasio\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-07T07:03:37.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "VisitasView.xaml",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\VisitasView.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\VisitasView.xaml",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\VisitasView.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\VisitasView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T07:34:33.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "PagoButWindow.xaml.cs",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwFUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T06:42:38.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "FormEditar.cs [Design]",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\FormEditar.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormEditar.cs",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\FormEditar.cs [Design]",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormEditar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T05:22:01.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\packages.config",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\packages.config",
+              "ToolTip": "D:\\repos\\Sistema_Gimnasio\\Sistema_Gimnasio\\packages.config",
+              "RelativeToolTip": "Sistema_Gimnasio\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-06T07:24:54.838Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|d:\\proyecto gym\\repos\\sistema_gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmDBEnrollment.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBEnrollment.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeToolTip": "BiometricApp\\frmDBEnrollment.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAUwBAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T16:10:18.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmDBEnrollment.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBEnrollment.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs [Dise\u00F1o]",
+              "RelativeToolTip": "BiometricApp\\frmDBEnrollment.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.551Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmDBVerify.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBVerify.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs [Dise\u00F1o]",
+              "RelativeToolTip": "BiometricApp\\frmDBVerify.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.551Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|d:\\proyecto gym\\repos\\sistema_gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\visitasview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\visitasview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\sistemaacceso.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\sistemaacceso.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\pagosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\pagobutwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagobutwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\miembrosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\miembrosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\membresiaswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\membresiaswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\inicioview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\inicioview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\formeditar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formeditar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\formagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\ucverifyfingerprint.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\gym_system.core\\gym_system.core\\pagos_agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71FF39DD-579B-444E-98B1-252FE88D3FCA}|Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj|solutionrelative:gym_system.core\\gym_system.core\\pagos_agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\formagregar.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formagregar.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Sistema_Gimnasio||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Gym_System.Core||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\formeditar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formeditar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\pagosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\miembrosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\miembrosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\formeditar.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formeditar.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\formagregar.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\formagregar.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\readerselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp\\BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\biometricapp\\biometricapp\\readerselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\membresiaswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\membresiaswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\pagobutwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\pagobutwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\visitasview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\visitasview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\sistema_gimnasio\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2D19D4F0-4976-43B4-A111-C5368B97D336}|Sistema_Gimnasio\\Sistema_Gimnasio.csproj|solutionrelative:sistema_gimnasio\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:biometricapp\\biometricapp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PagosView.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagosView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagosView.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagosView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagosView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T05:46:09.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MembresiasWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\MembresiasWindow.xaml.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAswLIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T05:44:50.91Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmDBEnrollment.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAUwKMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T05:40:52.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SistemaAcceso.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\SistemaAcceso.xaml.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwBYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T05:46:42.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InicioView.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\InicioView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\InicioView.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\InicioView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\InicioView.xaml.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAIwFwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T05:37:45.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FormAgregar.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormAgregar.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormAgregar.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormAgregar.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormAgregar.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAmwBQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T15:55:39.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PagoButWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagoButWindow.xaml.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAkwBAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VisitasView.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\VisitasView.xaml.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwCwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UCVerifyFingerprint.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAcwFIAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T05:33:07.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Pagos_agregar.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "RelativeDocumentMoniker": "Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "RelativeToolTip": "Gym_System.Core\\Gym_System.Core\\Pagos_agregar.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvw8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T05:20:39.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Sistema_Gimnasio",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\Sistema_Gimnasio.csproj",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\Sistema_Gimnasio.csproj",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\Sistema_Gimnasio.csproj",
+              "RelativeToolTip": "Sistema_Gimnasio\\Sistema_Gimnasio.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-13T16:05:37.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MiembrosView.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\MiembrosView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T15:30:54.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UCVerifyFingerprint.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs [Dise\u00F1o]",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T08:54:33.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormEditar.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormEditar.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormEditar.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormEditar.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormEditar.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAkwDcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T15:04:41.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UCVerifyFingerprint.Designer.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\UCVerifyFingerprint.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T05:32:45.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Gym_System.Core",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj",
+              "RelativeDocumentMoniker": "Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj",
+              "RelativeToolTip": "Gym_System.Core\\Gym_System.Core\\Gym_System.Core.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-26T16:44:36.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\App.config",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\App.config",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\App.config",
+              "RelativeToolTip": "Sistema_Gimnasio\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-07-22T01:21:38.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "frmDBVerify.Designer.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.Designer.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.Designer.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.Designer.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "frmDBVerify.resx",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.resx",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.resx",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.resx",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-02-26T17:19:05.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FormAgregar.Designer.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormAgregar.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormAgregar.Designer.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormAgregar.Designer.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormAgregar.Designer.cs",
+              "ViewState": "AgIAAMoBAAAAAAAAAAAUwNcBAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "frmDBEnrollment.Designer.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.Designer.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.Designer.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.Designer.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.Designer.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAABRwA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "frmDBVerify.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs [Dise\u00F1o]",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FormEditar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormEditar.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormEditar.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormEditar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormEditar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T15:29:34.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\Program.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\Program.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\Program.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "FormAgregar.resx",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormAgregar.resx",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormAgregar.resx",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormAgregar.resx",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormAgregar.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-02-13T16:05:37.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ReaderSelection.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\ReaderSelection.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\ReaderSelection.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\ReaderSelection.cs",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\ReaderSelection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MainWindow.xaml",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MainWindow.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-13T15:23:22.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\App.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\App.xaml",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\App.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-24T16:35:12.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PagosView.xaml",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagosView.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagosView.xaml",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagosView.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagosView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-13T15:21:58.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "MiembrosView.xaml",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MiembrosView.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MiembrosView.xaml",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MiembrosView.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\MiembrosView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-13T16:28:36.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "PagoButWindow.xaml",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagoButWindow.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\PagoButWindow.xaml",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\PagoButWindow.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\PagoButWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-13T15:23:19.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "VisitasView.xaml",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\VisitasView.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\VisitasView.xaml",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\VisitasView.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\VisitasView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-13T15:23:15.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MembresiasWindow.xaml",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "RelativeToolTip": "Sistema_Gimnasio\\MembresiasWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-13T15:23:23.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "frmDBEnrollment.resx",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.resx",
+              "RelativeDocumentMoniker": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.resx",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.resx",
+              "RelativeToolTip": "BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-02-13T16:05:37.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FormEditar.Designer.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormEditar.Designer.cs",
+              "RelativeDocumentMoniker": "Sistema_Gimnasio\\FormEditar.Designer.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\Sistema_Gimnasio\\FormEditar.Designer.cs",
+              "RelativeToolTip": "Sistema_Gimnasio\\FormEditar.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T16:05:37.811Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

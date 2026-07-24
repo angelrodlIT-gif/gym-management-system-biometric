@@ -1,0 +1,28 @@
+D:\repos\Gym_System.Core\Gym_System.Core\bin\Debug\Gym_System.Core.dll
+D:\repos\Gym_System.Core\Gym_System.Core\bin\Debug\Gym_System.Core.pdb
+D:\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.csproj.AssemblyReference.cache
+D:\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.csproj.CoreCompileInputs.cache
+D:\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.dll
+D:\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.pdb
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\bin\Debug\Gym_System.Core.dll
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\bin\Debug\Gym_System.Core.pdb
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.csproj.AssemblyReference.cache
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.csproj.CoreCompileInputs.cache
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.dll
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.pdb
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\bin\Debug\BiometricApp.exe
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\bin\Debug\DPUruNet.dll
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\bin\Debug\BiometricApp.pdb
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\bin\Debug\BiometricApp.exe.config
+D:\Proyecto Gym\repos\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_Syst.DE19A730.Up2Date
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\bin\Debug\Gym_System.Core.dll
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\bin\Debug\Gym_System.Core.pdb
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\bin\Debug\BiometricApp.exe
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\bin\Debug\DPUruNet.dll
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\bin\Debug\BiometricApp.pdb
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\bin\Debug\BiometricApp.exe.config
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.csproj.AssemblyReference.cache
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.csproj.CoreCompileInputs.cache
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_Syst.DE19A730.Up2Date
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.dll
+D:\Proyecto Gym\repos\Sistema_Gimnasio(+)\Gym_System.Core\Gym_System.Core\obj\Debug\Gym_System.Core.pdb

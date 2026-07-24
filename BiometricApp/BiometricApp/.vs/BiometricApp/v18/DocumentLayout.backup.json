@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|d:\\proyecto gym\\repos\\sistema_gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|d:\\proyecto gym\\repos\\sistema_gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbenrollment.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|d:\\proyecto gym\\repos\\sistema_gimnasio(\u002B)\\biometricapp\\biometricapp\\biometricapp\\frmdbenrollment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbenrollment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbenrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\biometricapp\\readerselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\readerselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\biometricapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\abzio\\OneDrive\\Escritorio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D24CB66-EF25-4C7F-872A-DC5C975857B7}|BiometricApp\\BiometricApp.csproj|solutionrelative:biometricapp\\frmdbverify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmDBEnrollment.resx",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.resx",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBEnrollment.resx",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.resx",
+              "RelativeToolTip": "BiometricApp\\frmDBEnrollment.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-02-26T17:16:52.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmDBEnrollment.Designer.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.Designer.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBEnrollment.Designer.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.Designer.cs",
+              "RelativeToolTip": "BiometricApp\\frmDBEnrollment.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:16:48.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmDBEnrollment.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBEnrollment.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeToolTip": "BiometricApp\\frmDBEnrollment.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwAsAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmDBEnrollment.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBEnrollment.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBEnrollment.cs [Dise\u00F1o]",
+              "RelativeToolTip": "BiometricApp\\frmDBEnrollment.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.551Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmDBVerify.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBVerify.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs [Dise\u00F1o]",
+              "RelativeToolTip": "BiometricApp\\frmDBVerify.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.551Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\Program.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\Program.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\Program.cs",
+              "RelativeToolTip": "BiometricApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReaderSelection.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\ReaderSelection.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\ReaderSelection.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\ReaderSelection.cs",
+              "RelativeToolTip": "BiometricApp\\ReaderSelection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmDBVerify.cs",
+              "DocumentMoniker": "C:\\Users\\abzio\\OneDrive\\Escritorio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "ToolTip": "C:\\Users\\abzio\\OneDrive\\Escritorio\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.472Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmDBVerify.cs",
+              "DocumentMoniker": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeDocumentMoniker": "BiometricApp\\frmDBVerify.cs",
+              "ToolTip": "D:\\Proyecto Gym\\repos\\Sistema_Gimnasio(\u002B)\\BiometricApp\\BiometricApp\\BiometricApp\\frmDBVerify.cs",
+              "RelativeToolTip": "BiometricApp\\frmDBVerify.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAtwBQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T17:15:54.551Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

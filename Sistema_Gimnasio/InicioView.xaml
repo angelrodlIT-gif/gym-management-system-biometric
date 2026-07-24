@@ -1,0 +1,163 @@
+﻿<UserControl
+             
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sistema_Gimnasio" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" x:Class="Sistema_Gimnasio.InicioView"
+             
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Cuadro para pagos -->
+        <UniformGrid Grid.Row="0" Rows="1" Columns="4" Margin="0 0 0 10">
+            <!-- Total Visitas -->
+            <Border Background="#465C2E" CornerRadius="10" Margin="5" Padding="10">
+                <StackPanel>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Icon:PackIconMaterial Grid.Column="0" Kind="Cash" Width="50" Height="50" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock  Grid.Column="1" Text="Total pagos" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,2,0,0" />
+                        <TextBlock Grid.Column="1" x:Name="txtTotalPagado" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <!-- Pagos hoy -->
+            <Border Background="#465C2E" CornerRadius="10" Margin="5" Padding="10">
+                <StackPanel>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Icon:PackIconMaterial Grid.Column="0" Kind="CashSync" Width="50" Height="50" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock  Grid.Column="1" Text="Pagos hoy" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,2,0,0" />
+                        <TextBlock Grid.Column="1" x:Name="txtTotalPagadoDias" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <!-- Visitas semana -->
+            <Border Background="#465C2E" CornerRadius="10" Margin="5" Padding="10">
+                <StackPanel>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Icon:PackIconMaterial Grid.Column="0" Kind="CashClock" Width="50" Height="50" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock  Grid.Column="1" Text="Pagos semana" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,2,0,0" />
+                        <TextBlock Grid.Column="1" x:Name="txtTotalPagadoSemana" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <!-- Visitas mes -->
+            <Border Background="#465C2E " CornerRadius="10" Margin="5" Padding="10">
+                <StackPanel>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Icon:PackIconMaterial Grid.Column="0" Kind="CashMultiple" Width="50" Height="50" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock  Grid.Column="1" Text="Pagos mes" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,2,0,0" />
+                        <TextBlock Grid.Column="1" x:Name="txtTotalPagadoMes" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+        <!-- Panel de Pagos Recientes-Graficas-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Pagos Recientes -->
+            <Border Background="White" CornerRadius="10" Margin="5" Padding="0,0,0,0" Grid.Column="0">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Pagos Recientes" Foreground="Black" Grid.Row="0" Padding="0,0,0,15" FontWeight="Bold" FontSize="13"/>
+                    <ItemsControl x:Name="icPagosRecientes" Grid.Row="1">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="5" Padding="10" CornerRadius="10" Background="#F5F5F5">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse Width="20" Height="20" Fill="#4CAF50"/>
+                                        <StackPanel Margin="10,0,0,0">
+                                            <TextBlock FontWeight="Bold" FontSize="14">
+                            <Run Text="{Binding NombreMiembro}"/>
+                            <Run Text=" pagó "/>
+                            <Run Text="{Binding NombreMembresia}"/>
+                                            </TextBlock>
+                                            <TextBlock Foreground="Gray">
+                            <Run Text="$"/>
+                            <Run Text="{Binding Monto}"/>
+                            <Run Text=" • "/>
+                            <Run Text="{Binding TiempoRelativo, Mode=OneWay}"/>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                <!--SubPanel de Graficas-->
+            </Border>
+            <Grid Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Grafico Ingresos Semanalmente-->
+                <Grid Grid.Row="0" Margin="10,10,10,10" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Wpf:CartesianChart Grid.Column="2" Grid.Row="0" Series="{Binding SeriesCollection}"  Background="WhiteSmoke" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                        <Wpf:CartesianChart.AxisX>
+                            <Wpf:Axis  ShowLabels="False" Labels="{Binding LabelsSemanaActual}"/>
+                        </Wpf:CartesianChart.AxisX>
+                        <Wpf:CartesianChart.AxisY>
+                            <Wpf:Axis />
+                        </Wpf:CartesianChart.AxisY>
+                    </Wpf:CartesianChart>
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="Ingresos por semana" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,5"/>
+                </Grid>
+                <!--Grafico Ingreso ultimos días-->
+                <Grid Grid.Row="1" Margin="10,10,10,10" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                    <Wpf:CartesianChart Grid.Column="2" Grid.Row="0" Series="{Binding SeriesCollection1}"  Background="WhiteSmoke" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
+                <Wpf:CartesianChart.AxisX>
+                    <Wpf:Axis  ShowLabels="False" Labels="{Binding LabelsSemanasMes}"/>
+                </Wpf:CartesianChart.AxisX>
+                <Wpf:CartesianChart.AxisY>
+                    <Wpf:Axis />
+                </Wpf:CartesianChart.AxisY>
+            </Wpf:CartesianChart>
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="Ingresos en los últimos días" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,5"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

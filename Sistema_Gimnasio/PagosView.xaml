@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="Sistema_Gimnasio.PagosView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:Sistema_Gimnasio" 
+            xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+            mc:Ignorable="d" 
+            Loaded="UserControl_Loaded"
+            d:DesignHeight="500" d:DesignWidth="800">
+
+   <Grid Background="White" Margin="20">
+       <Grid.RowDefinitions>
+           <RowDefinition Height="Auto"/>
+           <!-- Título -->
+           <RowDefinition Height="Auto"/>
+           <!-- Subtítulo1 -->
+           <RowDefinition Height="Auto"/>
+           <!-- Contenido1 -->
+           <RowDefinition Height="auto"/>
+           <!-- Fechas -->
+           <RowDefinition Height="auto"/>
+           <!-- Subtítulo2 -->
+           <RowDefinition Height="Auto"/>
+           <!-- Contenido 2 -->
+           <RowDefinition Height="*"/>
+           <!-- Datos de Visitas-->
+        </Grid.RowDefinitions>
+
+       <!-- Título y Total Pagado + Botón -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Pagos de Membresías" FontSize="32" FontWeight="Bold" Foreground="Black"/>
+                <TextBlock x:Name="txtTotalPagado" Text="$" FontSize="22" FontWeight="DemiBold" Foreground="#465C2E"/>
+            </StackPanel>
+
+            <Button x:Name="ActualizarEstados" Grid.Column="1" Height="30" Width="130" Margin="10,0,0,0"
+       Style="{StaticResource addButton}" Click="ActualizarEstados_Click" VerticalAlignment="Top">
+                <TextBlock Text="Cargar Datos" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center"/>
+            </Button>
+        </Grid>
+        <!-- Subtítulo -->
+        <TextBlock Grid.Row="1" Text="Pagos realizados por membresía" FontSize="18" FontWeight="Light"
+                  Foreground="Black" Margin="0,20,0,10"/>
+        <!-- Contenido Scrollable -->
+       <!-- Reporte de Membresías Activas -->
+       <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+           <ItemsControl ItemsSource="{Binding ReporteMembresiasActivas}">
+               <ItemsControl.ItemsPanel>
+                   <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" ItemWidth="200" ItemHeight="140"/>
+                   </ItemsPanelTemplate>
+               </ItemsControl.ItemsPanel>
+
+               <ItemsControl.ItemTemplate>
+                   <DataTemplate>
+                       <Border BorderBrush="#DDD" BorderThickness="1" Background="White" CornerRadius="8" Margin="10" Width="200" Padding="10">
+                           <StackPanel>
+                                <TextBlock Text="{Binding NombreMembresia}" FontWeight="Bold" FontSize="16" Foreground="#465C2E" Margin="0,0,0,5"/>
+                               <TextBlock Text="Usuarios:" FontWeight="SemiBold"/>
+                               <TextBlock Text="{Binding TotalUsuarios}" FontSize="14"/>
+                               <TextBlock Text="Esperado:" FontWeight="SemiBold"/>
+                               <TextBlock Text="{Binding TotalEsperado, StringFormat=C}" FontSize="14"/>
+                           </StackPanel>
+                       </Border>
+                   </DataTemplate>
+               </ItemsControl.ItemTemplate>
+           </ItemsControl>
+       </ScrollViewer>
+        <!-- Filtros de Fechas -->
+        <Grid Grid.Row="4" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Fecha de Inicio -->
+            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,10,0">
+                <TextBlock Text="Fecha de Inicio:" FontSize="12"/>
+                <DatePicker x:Name="datePickerInicio" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+            </StackPanel>
+
+            <!-- Fecha de Fin -->
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0">
+                <TextBlock Text="Fecha de Fin:" FontSize="12"/>
+                <DatePicker x:Name="datePickerFin" SelectedDateChanged="DatePicker_SelectedDateChanged" />
+            </StackPanel>
+        </Grid>
+        <!-- Subtítulo -->
+        <TextBlock Grid.Row="3" Text="Pagos filtrados por fecha" FontSize="18" FontWeight="Light"
+           Foreground="Black" Margin="0,20,0,10"  />
+        <!-- Reporte de Pagos por Rango de Fecha -->
+        <ScrollViewer Grid.Row="5" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" >
+           <ItemsControl ItemsSource="{Binding ReporteMembresiasFiltradas}" Height="auto" >
+               <ItemsControl.ItemsPanel>
+                   <ItemsPanelTemplate>
+                       <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" ItemWidth="200" ItemHeight="150"/>
+                   </ItemsPanelTemplate>
+               </ItemsControl.ItemsPanel>
+
+               <ItemsControl.ItemTemplate>
+                   <DataTemplate>
+                       <Border BorderBrush="#DDD" BorderThickness="1" Background="White" CornerRadius="8" Margin="10" Width="200" Padding="10" >
+                           <StackPanel>
+                                <TextBlock Text="{Binding NombreMembresia2}" FontWeight="Bold" FontSize="16" Foreground="#465C2E" Margin="0,0,0,5"/>
+                               
+                               <TextBlock Text="Total Pagado:" FontWeight="SemiBold"/>
+                               <TextBlock Text="{Binding Monto, StringFormat=C}" FontSize="14"/>
+                               <TextBlock Text="{Binding DataContext.FechaInicio, RelativeSource={RelativeSource AncestorType=UserControl}, StringFormat='{}{0:dd/MM/yyyy}'}" Margin="0,0,10,0"/>
+                               <TextBlock Text="{Binding DataContext.FechaFin, RelativeSource={RelativeSource AncestorType=UserControl}, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                           </StackPanel>
+                       </Border>
+                   </DataTemplate>
+               </ItemsControl.ItemTemplate>
+           </ItemsControl>
+       </ScrollViewer>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" Margin="10,0,0,0">
+            <TextBlock Text="Pagos de visitas " FontSize="18" FontWeight="DemiBold" Foreground="Black"/>
+            <TextBlock x:Name="txtTotalPagadoVisitas" Text="$" FontSize="18" FontWeight="DemiBold" Foreground="#465C2E"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" Margin="300,0,0,0">
+            <TextBlock Text="Total de visitas  " FontSize="18" FontWeight="DemiBold" Foreground="Black"/>
+            <TextBlock x:Name="txtTotalVisitas" Text="..." FontSize="18" FontWeight="DemiBold" Foreground="#465C2E"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

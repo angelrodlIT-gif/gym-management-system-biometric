@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="Sistema_Gimnasio.Views.MiembrosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:local="clr-namespace:Sistema_Gimnasio"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             d:DesignHeight="500" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </UserControl.Resources>
+
+    <!--Seccion Principal-->
+    <Grid  Background="White" Grid.Column="1" Margin="0,20,-47,10" Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="662*"/>
+            <ColumnDefinition Width="171*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <!--Titulo de la pagina-->
+        <TextBlock Text="Miembros" Grid.Row="1" FontSize="32" FontWeight="Bold" Margin="10,4,0,17"
+                   HorizontalAlignment="Left" Foreground="Black" Width="152"/>
+        <!--Bóton de AgregarMiembro-->
+        <Button x:Name="addButton" Style="{StaticResource addButton}" Height="35" Margin="1,0,0,0" VerticalAlignment="Center" Click="addButton_Click" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="150">
+            <StackPanel Orientation="Horizontal">
+                <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+                <TextBlock Text="Agregar Miembro"/>
+            </StackPanel>
+        </Button>
+        <Separator Grid.Row="3" Background="White" Margin="0,26,0,38" Grid.ColumnSpan="2"/>
+        <!--Campo de busqueda-->
+        <!-- Campo de búsqueda -->
+        <Grid Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.ColumnSpan="2" Margin="633,3,0,10">
+            <!-- Contenido de búsqueda -->
+            <TextBox x:Name="txtSearch" Style="{StaticResource textboxSeaarch}" TextChanged="txtSearch_TextChanged" />
+            <!-- Icono de búsqueda -->
+            <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+       Margin="0 0 15 0" Foreground="#b0b9c9" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <!--Miembros datagrid  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" -->
+        <DataGrid Style="{DynamicResource DataGridStyle1}" 
+                  CellStyle="{DynamicResource DataGridCellStyle1}" 
+                  RowStyle="{DynamicResource DataGridRowStyle1}"
+                  Grid.Row="3"
+                  MinHeight="300"
+                  x:Name="membersDataGrid" SelectionChanged="membersDataGrid_SelectionChanged" Grid.ColumnSpan="2" Margin="14,59,36,31" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.453"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-1.192"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn CanUserResize="False" Width="auto">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox/>
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+
+                <DataGridTextColumn Header="Id" IsReadOnly="True" CanUserResize="False" Width="50" Binding="{Binding id}"/>
+                <DataGridTemplateColumn Header="Miembro" IsReadOnly="True" Width="*" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="red">
+                                    <TextBlock Text="..." 
+                                               VerticalAlignment="Center" 
+                                               HorizontalAlignment="Center" 
+                                               Foreground="White" 
+                                               Margin="0 0 0 1"
+                                               />
+                                </Border>
+                                <TextBlock Text="{Binding nombre}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Estado" IsReadOnly="True" CanUserResize="False" Width="100" Binding="{Binding estado}"/>
+                <DataGridTextColumn Header="Membresía" IsReadOnly="True" CanUserResize="False" Width="100" Binding="{Binding NombreMembresia}"/>
+                <DataGridTextColumn Header="Fecha Inicio" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding fechaInicio, StringFormat=dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="Fecha Fin" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding fechaFin, StringFormat=dd/MM/yyyy}"/>
+
+                <DataGridTemplateColumn Header="Opciones" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="editButton" Style="{StaticResource gridEditButton}" Click="editButton_Click">
+                                    <Icon:PackIconMaterial Kind="PencilOutline " Style="{StaticResource gridButtonIcon}"/>
+                                </Button>
+                                <Button x:Name="trashButton" Style="{StaticResource gridRemoveButton}" Click="trashButton_Click">
+                                    <Icon:PackIconMaterial Kind="TrashCanOutline" Style="{StaticResource gridButtonIcon}"/>
+                                </Button>
+                                <Button x:Name="payButton" Style="{StaticResource gridPayButton}" Click="payButton_Click">
+                                    <Icon:PackIconMaterial Kind="Cash" Style="{StaticResource gridButtonIcon}"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--Selector de paginas
+        <Border Grid.Row="6" HorizontalAlignment="Left" BorderBrush="#dee4ec" BorderThickness="1"
+CornerRadius="5" Padding="5" Background="White" Margin="529,121,0,-2" Grid.ColumnSpan="2" Width="294">
+            <StackPanel Orientation="Horizontal">
+                <Button Style="{StaticResource pagingButton}">
+                    <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/>
+                </Button>
+                <Rectangle Width="1" Fill="#dee4ec" Margin="3 7" />
+                <Button Style="{StaticResource pagingButton}" Content="1"/>
+                <Button Style="{StaticResource pagingButton}" Content="2" Background="#465C2E" Foreground="White"/>
+                <Button Style="{StaticResource pagingButton}" Content="3"/>
+                <TextBlock Text="..." Foreground="#6C7682" VerticalAlignment="Center" FontSize="15" Margin="10 0 "/>
+                <Button Style="{StaticResource pagingButton}" Content="7"/>
+                <Button Style="{StaticResource pagingButton}" Content="8"/>
+                <Button Style="{StaticResource pagingButton}" Content="9"/>
+
+                <Rectangle Width="1" Fill="#dee4ec" Margin="3 7" />
+
+                <Button Style="{StaticResource pagingButton}">
+                    <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/>
+                </Button>
+            </StackPanel>
+        </Border> -->
+        <Button x:Name="ActualizarEstados" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" Style="{StaticResource addButton}" Click="ActualizarEstados_Click">
+            <TextBlock Text="Actualizar "  Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold"/>
+        </Button>
+        <TextBlock Text="Filtrar por:" Grid.Row="3" FontSize="13" FontWeight="SemiBold" Margin="556,20,0,0"
+            Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="1" Height="17" Width="62"/>
+
+
+
+
+    </Grid>
+</UserControl>
