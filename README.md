@@ -1,4 +1,4 @@
-# 🏋️ Gym Management System with Biometric Authentication
+# Gym Management System with Biometric Authentication
 
 ![Platform](https://img.shields.io/badge/.NET_Framework-4.x-blue)
 ![Language](https://img.shields.io/badge/C%23-WinForms%20%7C%20WPF-239120)
@@ -25,7 +25,7 @@ El proyecto permite administrar miembros, membresías, pagos y controlar el acce
 
 ---
 
-# 🛠 Tecnologías
+# Tecnologías
 
 | Tecnología | Descripción |
 |------------|-------------|
@@ -51,11 +51,11 @@ El proyecto permite administrar miembros, membresías, pagos y controlar el acce
 
 #  Base de datos
 
-El proyecto incluye el respaldo de la base de datos.
+El proyecto incluye base de datos en SQL server management studio.
 
 ```
 Database/
-└── SistemaGimnasio.bak
+└── SistemaGimnasio
 ```
 
 Una vez restaurada la base de datos, actualiza la cadena de conexión correspondiente en:
