@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
@@ -142,6 +142,7 @@ namespace Sistema_Gimnasio.Views
 
                         if (eliminado)
                         {
+                            BiometricApp.BiometricCache.Invalidar();
                             System.Windows.MessageBox.Show("Usuario eliminado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                             CargarMiembros(); // recarga la tabla
                         }
@@ -173,10 +174,7 @@ namespace Sistema_Gimnasio.Views
                 PagoButWindow pagoWindow = new PagoButWindow(idUsuario);
                 pagoWindow.ShowDialog();
 
-                // Refrescar los datos después del pago
-                CargarMiembros();
-
-                // Actualizar los estados de los miembros después de registrar el pag
+                // Actualizar los estados de los miembros tras el pago y refrescar el DataGrid
                 ActualizarEstados_Automatico();
             }
             else
@@ -191,22 +189,8 @@ namespace Sistema_Gimnasio.Views
             try
             {
                 Miembro_Conexion conexion = new Miembro_Conexion();
-                List<Miembros_agregar> miembros = conexion.ObtenerTodosLosMiembros();
-
-                foreach (var miembro in miembros)
-                {
-                    if (miembro.FechaInicio.HasValue && miembro.FechaFin.HasValue)
-                    {
-                        if (miembro.FechaInicio.Value <= DateTime.Now && miembro.FechaFin.Value >= DateTime.Now)
-                        {
-                            conexion.ActualizarEstadoMiembro(miembro.id, "Activo");
-                        }
-                        else
-                        {
-                            conexion.ActualizarEstadoMiembro(miembro.id, "Inactivo");
-                        }
-                    }
-                }
+                conexion.ActualizarEstadosMasivo();
+                BiometricApp.BiometricCache.Invalidar();
 
                 System.Windows.MessageBox.Show("Estados actualizados correctamente.");
                 CargarMiembros(); // Método que refresca el DataGrid
@@ -222,29 +206,13 @@ namespace Sistema_Gimnasio.Views
             try
             {
                 Miembro_Conexion conexion = new Miembro_Conexion();
-                List<Miembros_agregar> miembros = conexion.ObtenerTodosLosMiembros();
-
-                foreach (var miembro in miembros)
-                {
-                    if (miembro.FechaInicio.HasValue && miembro.FechaFin.HasValue)
-                    {
-                        if (miembro.FechaInicio.Value <= DateTime.Now && miembro.FechaFin.Value >= DateTime.Now)
-                        {
-                            conexion.ActualizarEstadoMiembro(miembro.id, "Activo");
-                        }
-                        else
-                        {
-                            conexion.ActualizarEstadoMiembro(miembro.id, "Inactivo");
-                        }
-                    }
-                }
-
-                System.Windows.MessageBox.Show("Estados actualizados correctamente.");
-                CargarMiembros(); // Método que refresca el DataGrid
+                conexion.ActualizarEstadosMasivo();
+                BiometricApp.BiometricCache.Invalidar();
+                CargarMiembros(); // Refresca el DataGrid
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error al actualizar estados: " + ex.Message);
+                // Silencioso en modo automático para evitar popups repetitivos
             }
         }
 

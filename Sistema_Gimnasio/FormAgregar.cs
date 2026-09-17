@@ -27,8 +27,7 @@ namespace Sistema_Gimnasio
 
             AceptarBut.Enabled = false;
             ContinuarBut.Enabled = false;
-
-
+            this.FormClosing += (s, e) => LimpiarControlHuella();
         }
 
         private void VerificarTextBoxes()
@@ -62,10 +61,10 @@ namespace Sistema_Gimnasio
             panelBiometrico.Size = new Size(1214, 56);
             panelBiometrico.Location = new Point(16, 490);
             panelBiometrico.Visible = true;
-            panelBiometrico.BringToFront(); 
+            panelBiometrico.BringToFront();
 
-
-            
+            // Si se regresa a datos personales, pausar la captura del lector
+            FingerprintManager.Instance.Detener();
         }
 
         private void AceptarBut_Click(object sender, EventArgs e)
@@ -90,6 +89,11 @@ namespace Sistema_Gimnasio
             {
                 Miembro_Conexion conexion = new Miembro_Conexion();
                 conexion.InsertarMiembro(persona);
+
+                // Invalidar caché biométrica para que el nuevo miembro sea reconocido inmediatamente
+                BiometricCache.Invalidar();
+                LimpiarControlHuella();
+
                 MessageBox.Show("Miembro agregado correctamente.");
             }
             catch (Exception ex)
@@ -153,7 +157,28 @@ namespace Sistema_Gimnasio
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            LimpiarControlHuella();
             this.Close();
+        }
+
+        private void LimpiarControlHuella()
+        {
+            try
+            {
+                if (Huella != null)
+                {
+                    if (!Huella.IsDisposed)
+                    {
+                        Huella.Close();
+                        Huella.Dispose();
+                    }
+                    Huella = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error al limpiar control de huella: " + ex.Message);
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

@@ -1,11 +1,8 @@
 using DPUruNet;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
-using System.Configuration;
 
 namespace BiometricApp
 {
@@ -13,10 +10,6 @@ namespace BiometricApp
     {
         // La plantilla final, leída por FormAgregar después del enrolamiento
         public Fmd TemplateHuellaFinal { get; private set; }
-
-        // Conexión SQL (mantenida por compatibilidad con Dispose del Designer)
-        private readonly SqlConnection conn = new SqlConnection(
-            ConfigurationManager.ConnectionStrings["GymDbConnection"].ConnectionString);
 
         public frmDBEnrollment()
         {
@@ -32,7 +25,7 @@ namespace BiometricApp
             FingerprintManager.Instance.EnrolamientoCompleto += OnCompleto;
             FingerprintManager.Instance.EnrolamientoError += OnError;
             FingerprintManager.Instance.ErrorLector += OnErrorLector;
-            FingerprintManager.Instance.ImagenCapturada +=  OnImagenCapturada;
+            FingerprintManager.Instance.ImagenCapturada += OnImagenCapturada;
 
             // Inicializar el lector si todavía no está abierto
             if (!FingerprintManager.Instance.Inicializar())
@@ -49,24 +42,39 @@ namespace BiometricApp
 
         private void frmDBEnrollment_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Desuscribirse — no detener el lector (el manager lo gestiona)
-            FingerprintManager.Instance.EnrolamientoProgreso -= OnProgreso;
-            FingerprintManager.Instance.EnrolamientoCompleto -= OnCompleto;
-            FingerprintManager.Instance.EnrolamientoError -= OnError;
-            FingerprintManager.Instance.ErrorLector -= OnErrorLector;
-            FingerprintManager.Instance.ImagenCapturada -= OnImagenCapturada;
+            DesuscribirEventos();
+            DrenarBitmapsPendientes();
 
             // Si se cierra sin completar, detener el modo actual
             if (TemplateHuellaFinal == null)
                 FingerprintManager.Instance.Detener();
         }
 
+        private void DesuscribirEventos()
+        {
+            FingerprintManager.Instance.EnrolamientoProgreso -= OnProgreso;
+            FingerprintManager.Instance.EnrolamientoCompleto -= OnCompleto;
+            FingerprintManager.Instance.EnrolamientoError -= OnError;
+            FingerprintManager.Instance.ErrorLector -= OnErrorLector;
+            FingerprintManager.Instance.ImagenCapturada -= OnImagenCapturada;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                if (conn != null && conn.State == ConnectionState.Open)
-                    conn.Close();
+                DesuscribirEventos();
+                lock (_bitmapsPendientesLock)
+                {
+                    DrenarBitmapsPendientes();
+
+                    if (pbFingerprint != null && pbFingerprint.Image != null)
+                    {
+                        var img = pbFingerprint.Image;
+                        pbFingerprint.Image = null;
+                        try { img.Dispose(); } catch { }
+                    }
+                }
 
                 if (components != null)
                     components.Dispose();
@@ -80,7 +88,6 @@ namespace BiometricApp
 
         private void OnProgreso(object sender, int count)
         {
-            // Vienen del hilo del SDK — actualizar UI con Invoke
             ActualizarLabel(
                 $"Huella {count}/{FingerprintManager.CAPTURAS_REQUERIDAS} capturada. " +
                 (count < FingerprintManager.CAPTURAS_REQUERIDAS ? "Continúe..." : "Procesando..."),
@@ -92,13 +99,28 @@ namespace BiometricApp
             TemplateHuellaFinal = template;
 
             if (!IsHandleCreated || IsDisposed) return;
-            // Actualizar UI desde hilo del SDK — usar Invoke
-            this.Invoke((MethodInvoker)delegate
+
+            Action accion = () =>
             {
-                ActualizarLabel("¡Huella registrada correctamente!", Color.Green);
-                pbFingerprint.Image = null;
-                // No llamar this.Close() aquí — FormAgregar decide cuándo cerrar
-            });
+                if (!IsDisposed)
+                {
+                    ActualizarLabel("¡Huella registrada correctamente!", Color.Green);
+                    if (pbFingerprint != null)
+                    {
+                        lock (_bitmapsPendientesLock)
+                        {
+                            var img = pbFingerprint.Image;
+                            pbFingerprint.Image = null;
+                            img?.Dispose();
+                        }
+                    }
+                }
+            };
+
+            if (this.InvokeRequired)
+                this.BeginInvoke(accion);
+            else
+                accion();
         }
 
         public void ReiniciarEnrolamiento()
@@ -122,73 +144,288 @@ namespace BiometricApp
 
         #region UI HELPERS
 
-        // ActualizarLabel — agregar la primera línea del método:
         private void ActualizarLabel(string texto, Color color)
         {
-            if (!IsHandleCreated || IsDisposed) return;  // ← AGREGAR
+            if (!IsHandleCreated || IsDisposed) return;
 
-            if (lblPlaceFinger.InvokeRequired)
+            Action accion = () =>
             {
-                lblPlaceFinger.Invoke((MethodInvoker)delegate
+                if (!IsDisposed && lblPlaceFinger != null)
                 {
                     lblPlaceFinger.Text = texto;
                     lblPlaceFinger.ForeColor = color;
-                });
-            }
+                }
+            };
+
+            if (lblPlaceFinger.InvokeRequired)
+                lblPlaceFinger.BeginInvoke(accion);
             else
+                accion();
+        }
+
+        private readonly object _bitmapsPendientesLock = new object();
+        private readonly System.Collections.Generic.HashSet<Bitmap> _bitmapsPendientes = new System.Collections.Generic.HashSet<Bitmap>();
+
+        /// <summary>
+        /// Seam para interceptar el encolado de delegados UI en pruebas unitarias deterministas.
+        /// </summary>
+        public Action<Action> SeamEncolarDelegado { get; set; }
+
+        /// <summary>
+        /// Seam para simular/verificar intercalación de concurrencia antes de asignar el bitmap en UI.
+        /// </summary>
+        public Action SeamAntesDeAsignar { get; set; }
+
+        /// <summary>
+        /// Objeto de sincronización para bitmaps pendientes y transición de ownership hacia la UI.
+        /// </summary>
+        public object BitmapsPendientesLock => _bitmapsPendientesLock;
+
+        /// <summary>
+        /// Método de verificación de regresión para asegurar que otro hilo no puede intercalar
+        /// DrenarBitmapsPendientes ni adquirir el lock mientras la sección crítica está activa.
+        /// </summary>
+        public bool ProbarExclusionConcurrenteDrenar()
+        {
+            lock (_bitmapsPendientesLock)
             {
-                lblPlaceFinger.Text = texto;
-                lblPlaceFinger.ForeColor = color;
+                bool lockAdquiridoPorOtroHilo = false;
+                var t = new System.Threading.Thread(() =>
+                {
+                    if (System.Threading.Monitor.TryEnter(_bitmapsPendientesLock, 0))
+                    {
+                        try
+                        {
+                            lockAdquiridoPorOtroHilo = true;
+                        }
+                        finally
+                        {
+                            System.Threading.Monitor.Exit(_bitmapsPendientesLock);
+                        }
+                    }
+                });
+                t.Start();
+                t.Join(200);
+                return !lockAdquiridoPorOtroHilo;
             }
         }
 
-        // Método público para que FormAgregar muestre la imagen capturada si lo desea
+        /// <summary>
+        /// Cantidad de bitmaps encolados actualmente pendientes de renderizado por la UI.
+        /// </summary>
+        public int CantidadBitmapsPendientes
+        {
+            get
+            {
+                lock (_bitmapsPendientesLock)
+                {
+                    return _bitmapsPendientes.Count;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Drena y dispone todos los bitmaps pendientes de renderizado de forma thread-safe e idempotente.
+        /// Evita fugas de memoria nativa si el formulario se cierra o dispone antes de ejecutar delegados BeginInvoke.
+        /// </summary>
+        public void DrenarBitmapsPendientes()
+        {
+            lock (_bitmapsPendientesLock)
+            {
+                if (_bitmapsPendientes.Count == 0) return;
+                var pendientes = new System.Collections.Generic.List<Bitmap>(_bitmapsPendientes);
+                _bitmapsPendientes.Clear();
+
+                foreach (var b in pendientes)
+                {
+                    try { b?.Dispose(); } catch { }
+                }
+            }
+        }
+
         public void MostrarImagen(Bitmap bmp)
         {
-            if (pbFingerprint.InvokeRequired)
-                pbFingerprint.Invoke((MethodInvoker)delegate { pbFingerprint.Image = bmp; });
-            else
-                pbFingerprint.Image = bmp;
+            if (bmp == null) return;
+            if ((!IsHandleCreated && SeamEncolarDelegado == null) || IsDisposed)
+            {
+                try { bmp?.Dispose(); } catch { }
+                return;
+            }
+
+            lock (_bitmapsPendientesLock)
+            {
+                if (IsDisposed)
+                {
+                    try { bmp?.Dispose(); } catch { }
+                    return;
+                }
+                _bitmapsPendientes.Add(bmp);
+            }
+
+            bool delegadoEncolado = false;
+            try
+            {
+                Action accion = () =>
+                {
+                    bool eliminadoDelConjunto = false;
+                    Image imagenPreviaADisponer = null;
+                    bool debeDisponerBmp = false;
+
+                    try
+                    {
+                        lock (_bitmapsPendientesLock)
+                        {
+                            eliminadoDelConjunto = _bitmapsPendientes.Remove(bmp);
+
+                            // Si ya no estaba en el conjunto, fue drenado y dispuesto por Dispose() / DrenarBitmapsPendientes()
+                            if (!eliminadoDelConjunto)
+                            {
+                                return;
+                            }
+
+                            SeamAntesDeAsignar?.Invoke();
+
+                            if (IsDisposed || pbFingerprint == null || pbFingerprint.IsDisposed)
+                            {
+                                // Si el control está disposed, el delegado debe disponer el bitmap dentro de la sección crítica y no asignarlo.
+                                try { bmp.Dispose(); } catch { }
+                                return;
+                            }
+
+                            try
+                            {
+                                imagenPreviaADisponer = pbFingerprint.Image;
+                                pbFingerprint.Image = bmp;
+                                if (imagenPreviaADisponer != null)
+                                {
+                                    try { imagenPreviaADisponer.Dispose(); } catch { }
+                                    imagenPreviaADisponer = null;
+                                }
+                            }
+                            catch
+                            {
+                                debeDisponerBmp = true;
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        debeDisponerBmp = true;
+                    }
+                    finally
+                    {
+                        // Asegura remoción del conjunto de pendientes
+                        lock (_bitmapsPendientesLock)
+                        {
+                            _bitmapsPendientes.Remove(bmp);
+                        }
+
+                        if (imagenPreviaADisponer != null)
+                        {
+                            try { imagenPreviaADisponer.Dispose(); } catch { }
+                        }
+
+                        if (debeDisponerBmp && eliminadoDelConjunto)
+                        {
+                            try { bmp?.Dispose(); } catch { }
+                        }
+                    }
+                };
+
+                if (SeamEncolarDelegado != null)
+                {
+                    SeamEncolarDelegado(accion);
+                    delegadoEncolado = true;
+                }
+                else if (pbFingerprint != null && pbFingerprint.InvokeRequired)
+                {
+                    pbFingerprint.BeginInvoke(accion);
+                    delegadoEncolado = true;
+                }
+                else
+                {
+                    accion();
+                    delegadoEncolado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (!delegadoEncolado)
+                {
+                    lock (_bitmapsPendientesLock)
+                    {
+                        _bitmapsPendientes.Remove(bmp);
+                    }
+                    try { bmp?.Dispose(); } catch { }
+                }
+                System.Diagnostics.Debug.WriteLine("Error al mostrar imagen en frmDBEnrollment: " + ex.Message);
+            }
         }
 
         #endregion
 
         #region BITMAP
+
         private void OnImagenCapturada(object sender, FingerprintManager.ImagenCapturaEventArgs e)
         {
-            if (!IsHandleCreated || IsDisposed) return;
-            // Construir el bitmap desde los bytes crudos (escala de grises → RGB)
-            byte[] rgb = new byte[e.RawImage.Length * 3];
-            for (int i = 0; i < e.RawImage.Length; i++)
+            if (!IsHandleCreated || IsDisposed || e == null || e.RawImage == null) return;
+
+            Bitmap bmp = null;
+            BitmapData data = null;
+            bool entregadoAMostrar = false;
+
+            try
             {
-                rgb[i * 3] = e.RawImage[i];
-                rgb[i * 3 + 1] = e.RawImage[i];
-                rgb[i * 3 + 2] = e.RawImage[i];
+                byte[] rgb = new byte[e.RawImage.Length * 3];
+                for (int i = 0; i < e.RawImage.Length; i++)
+                {
+                    rgb[i * 3] = e.RawImage[i];
+                    rgb[i * 3 + 1] = e.RawImage[i];
+                    rgb[i * 3 + 2] = e.RawImage[i];
+                }
+
+                bmp = new Bitmap(e.Width, e.Height, PixelFormat.Format24bppRgb);
+
+                data = bmp.LockBits(
+                    new Rectangle(0, 0, bmp.Width, bmp.Height),
+                    ImageLockMode.WriteOnly,
+                    PixelFormat.Format24bppRgb);
+
+                try
+                {
+                    for (int y = 0; y < bmp.Height; y++)
+                    {
+                        IntPtr ptr = data.Scan0 + data.Stride * y;
+                        System.Runtime.InteropServices.Marshal.Copy(rgb, y * bmp.Width * 3, ptr, bmp.Width * 3);
+                    }
+                }
+                finally
+                {
+                    bmp.UnlockBits(data);
+                    data = null;
+                }
+
+                if (IsDisposed || !IsHandleCreated)
+                {
+                    bmp.Dispose();
+                    bmp = null;
+                    return;
+                }
+
+                entregadoAMostrar = true;
+                MostrarImagen(bmp);
             }
-
-            var bmp = new System.Drawing.Bitmap(e.Width, e.Height,
-                          System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-            var data = bmp.LockBits(
-                new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height),
-                System.Drawing.Imaging.ImageLockMode.WriteOnly,
-                System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-            for (int y = 0; y < bmp.Height; y++)
+            catch (Exception ex)
             {
-                IntPtr ptr = data.Scan0 + data.Stride * y;
-                System.Runtime.InteropServices.Marshal.Copy(rgb, y * bmp.Width * 3, ptr, bmp.Width * 3);
+                if (!entregadoAMostrar && bmp != null)
+                {
+                    try { bmp.Dispose(); } catch { }
+                    bmp = null;
+                }
+                System.Diagnostics.Debug.WriteLine("Error al renderizar imagen de enrolamiento: " + ex.Message);
             }
-
-            bmp.UnlockBits(data);
-
-            // Mostrar en el PictureBox — viene del hilo del SDK, usar Invoke
-            if (pbFingerprint.InvokeRequired)
-                pbFingerprint.Invoke((MethodInvoker)delegate { pbFingerprint.Image = bmp; });
-            else
-                pbFingerprint.Image = bmp;
         }
-    }
-    #endregion
 
+        #endregion
+    }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
@@ -29,7 +29,6 @@ namespace Gym_System.Core
                         (m.Precio * COUNT(DISTINCT u.Id)) AS TotalEsperado
                     FROM Membresias m
                     LEFT JOIN Miembros u ON m.Id = u.IdMembresia AND u.Estado = 'Activo'
-                    LEFT JOIN Pagos p ON m.Id = p.IdMembresia
                     GROUP BY m.Id, m.Nombre, m.Precio
                 ", conn);
 
@@ -82,6 +81,8 @@ namespace Gym_System.Core
         public ObservableCollection<Pagos_agregar> ReportePagosConNombreMembresia(DateTime fechaInicio, DateTime fechaFin)
         {
             var lista = new ObservableCollection<Pagos_agregar>();
+            DateTime inicio = fechaInicio.Date;
+            DateTime finExclusivo = fechaFin.Date.AddDays(1);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -89,25 +90,31 @@ namespace Gym_System.Core
                 SqlCommand cmd = new SqlCommand(@"
             SELECT 
                 p.IdMembresia,
-                m.Nombre AS NombreMembresia,
+                ISNULL(m.Nombre, 'Sin Membresía') AS NombreMembresia,
                 SUM(p.Monto) AS TotalMonto
             FROM Pagos p
             LEFT JOIN Membresias m ON p.IdMembresia = m.Id
-            WHERE p.Fecha BETWEEN @FechaInicio AND @FechaFin
+            WHERE p.Fecha >= @FechaInicio AND p.Fecha < @FinExclusivo
             GROUP BY p.IdMembresia, m.Nombre
         ", conn);
 
-                cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+                cmd.Parameters.AddWithValue("@FechaInicio", inicio);
+                cmd.Parameters.AddWithValue("@FinExclusivo", finExclusivo);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
+                        string nombre = reader["NombreMembresia"] != DBNull.Value ? reader["NombreMembresia"].ToString() : "Sin Membresía";
+                        decimal monto = reader["TotalMonto"] != DBNull.Value ? Convert.ToDecimal(reader["TotalMonto"]) : 0m;
+
                         lista.Add(new Pagos_agregar
                         {
-                            NombreMembresia2 = reader["NombreMembresia"].ToString(),
-                            Monto = Convert.ToDecimal(reader["TotalMonto"])
+                            NombreMembresia = nombre,
+                            NombreMembresia2 = nombre,
+                            Monto = monto,
+                            FechaInicio = fechaInicio,
+                            FechaFin = fechaFin
                         });
                     }
                 }
@@ -121,6 +128,8 @@ namespace Gym_System.Core
         {
             decimal totalVisitas = 0;
             int totalIds = 0;
+            DateTime inicio = fechaInicio.Date;
+            DateTime finExclusivo = fechaFin.Date.AddDays(1);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -136,13 +145,13 @@ namespace Gym_System.Core
                     v.Precio,
                     COUNT(*) * v.Precio AS TotalPorGrupo
                 FROM Visitas v
-                WHERE CONVERT(DATE, v.Fecha) BETWEEN @FechaInicio AND @FechaFin
+                WHERE v.Fecha >= @FechaInicio AND v.Fecha < @FinExclusivo
                 GROUP BY v.Id, v.Precio
             ) AS Subtotales;
         ", conn);
 
-                cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+                cmd.Parameters.AddWithValue("@FechaInicio", inicio);
+                cmd.Parameters.AddWithValue("@FinExclusivo", finExclusivo);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -163,7 +172,7 @@ namespace Gym_System.Core
 
             DateTime hoy = DateTime.Today;
             DateTime fechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
-            DateTime fechaFin = fechaInicio.AddMonths(1).AddDays(-1); // Último día del mes
+            DateTime fechaFinExclusivo = fechaInicio.AddMonths(1);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -174,13 +183,13 @@ namespace Gym_System.Core
                 MIN(p.Fecha) AS FechaInicioSemana,
                 SUM(p.Monto) AS TotalMonto
             FROM Pagos p
-            WHERE p.Fecha BETWEEN @FechaInicio AND @FechaFin
+            WHERE p.Fecha >= @FechaInicio AND p.Fecha < @FechaFinExclusivo
             GROUP BY DATEPART(WEEK, p.Fecha)
             ORDER BY FechaInicioSemana
         ", conn);
 
                 cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+                cmd.Parameters.AddWithValue("@FechaFinExclusivo", fechaFinExclusivo);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -200,16 +209,15 @@ namespace Gym_System.Core
         }
 
 
-        
         //6. Reporte por semana (Lunes-Domingo)
         public ObservableCollection<(string Dia, decimal Total)> ObtenerPagosSemanaActual()
         {
             var lista = new ObservableCollection<(string, decimal)>();
 
             DateTime hoy = DateTime.Today;
-            int delta = DayOfWeek.Monday - hoy.DayOfWeek;
-            DateTime lunes = hoy.AddDays(delta);
-            DateTime domingo = lunes.AddDays(6);
+            int delta = ((int)hoy.DayOfWeek == 0) ? -6 : (1 - (int)hoy.DayOfWeek);
+            DateTime lunes = hoy.AddDays(delta).Date;
+            DateTime finExclusivo = lunes.AddDays(7);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -223,7 +231,7 @@ namespace Gym_System.Core
                     DATENAME(WEEKDAY, Fecha) AS DiaSemana,
                     SUM(Monto) AS Total
                 FROM Pagos
-                WHERE Fecha BETWEEN @Lunes AND @Domingo
+                WHERE Fecha >= @Lunes AND Fecha < @FinExclusivo
                 GROUP BY CONVERT(date, Fecha), DATENAME(WEEKDAY, Fecha)
 
                 UNION ALL
@@ -233,7 +241,7 @@ namespace Gym_System.Core
                     DATENAME(WEEKDAY, Fecha) AS DiaSemana,
                     SUM(Precio) AS Total
                 FROM Visitas
-                WHERE Fecha BETWEEN @Lunes AND @Domingo
+                WHERE Fecha >= @Lunes AND Fecha < @FinExclusivo
                 GROUP BY CONVERT(date, Fecha), DATENAME(WEEKDAY, Fecha)
             )
 
@@ -247,7 +255,7 @@ namespace Gym_System.Core
         ", conn);
 
                 cmd.Parameters.AddWithValue("@Lunes", lunes);
-                cmd.Parameters.AddWithValue("@Domingo", domingo);
+                cmd.Parameters.AddWithValue("@FinExclusivo", finExclusivo);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -418,29 +426,27 @@ ORDER BY Anio, Mes;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"SELECT TOP 10 
-                            m.nombre AS NombreMiembro,
                             me.nombre AS NombreMembresia,
                             p.Monto,
                             p.Fecha
                          FROM Pagos p
-                         INNER JOIN Miembros m ON p.ID = m.id
                          INNER JOIN Membresias me ON p.IdMembresia = me.id
                          ORDER BY p.Fecha DESC";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
 
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    lista.Add(new PagoReciente
+                    while (reader.Read())
                     {
-                        NombreMiembro = reader["NombreMiembro"].ToString(),
-                        NombreMembresia = reader["NombreMembresia"].ToString(),
-                        Monto = Convert.ToDecimal(reader["Monto"]),
-                        Fecha = Convert.ToDateTime(reader["Fecha"])
-                    });
+                        lista.Add(new PagoReciente
+                        {
+                            NombreMembresia = reader["NombreMembresia"].ToString(),
+                            Monto = Convert.ToDecimal(reader["Monto"]),
+                            Fecha = Convert.ToDateTime(reader["Fecha"])
+                        });
+                    }
                 }
             }
 

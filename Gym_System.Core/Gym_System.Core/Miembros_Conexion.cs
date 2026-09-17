@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
-using System.Windows.Forms;
 using System.Configuration;
 
 namespace Gym_System.Core
@@ -52,6 +51,7 @@ namespace Gym_System.Core
                         {
                             throw new Exception("No se insertó ninguna fila.");
                         }
+                        NotificadorCambioMiembro.Notificar();
                     }
                 }
                 catch (Exception ex)
@@ -92,6 +92,7 @@ namespace Gym_System.Core
                         {
                             throw new Exception("No se actualizó el miembro.");
                         }
+                        NotificadorCambioMiembro.Notificar();
                     }
                 }
                 catch (Exception ex)
@@ -161,64 +162,175 @@ namespace Gym_System.Core
 
                 connection.Open();
                 int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    NotificadorCambioMiembro.Notificar();
+                }
                 return rowsAffected > 0;
             }
         }
-        public bool RegistrarPago(long idMiembro, DateTime fechaInicio, DateTime fechaFin, long idMembresia)
+        /// <summary>
+        /// Registra un pago y actualiza la membresía del miembro de forma atómica y thread-safe.
+        /// Consulta la vigencia actual del miembro bajo la misma transacción (con bloqueo UPDLOCK/ROWLOCK)
+        /// y calcula la nueva vigencia preservando días activos restantes mediante VigenciaCalculador.
+        /// Valida filas afectadas para garantizar que el miembro exista antes de registrar el pago.
+        /// </summary>
+        public bool RegistrarPago(long idMiembro, long idMembresia, DateTime? fechaPago = null, decimal? monto = null)
         {
-            bool exito = false;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlTransaction transaccion = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        DateTime fechaOperacion = fechaPago ?? DateTime.Now;
+
+                        // 1. Consultar miembro bajo bloqueo transaccional (UPDLOCK) para evitar condiciones de carrera
+                        DateTime? fechaInicioActual = null;
+                        DateTime? fechaFinActual = null;
+                        bool miembroExiste = false;
+
+                        string queryMiembro = "SELECT FechaInicio, FechaFin FROM Miembros WITH (UPDLOCK, ROWLOCK) WHERE Id = @IdMiembro";
+                        using (SqlCommand cmdMiembro = new SqlCommand(queryMiembro, conn, transaccion))
+                        {
+                            cmdMiembro.Parameters.AddWithValue("@IdMiembro", idMiembro);
+                            using (SqlDataReader reader = cmdMiembro.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    miembroExiste = true;
+                                    if (!reader.IsDBNull(0))
+                                        fechaInicioActual = reader.GetDateTime(0);
+                                    if (!reader.IsDBNull(1))
+                                        fechaFinActual = reader.GetDateTime(1);
+                                }
+                            }
+                        }
+
+                        if (!miembroExiste)
+                        {
+                            transaccion.Rollback();
+                            return false;
+                        }
+
+                        // 2. Consultar duración, unidad y precio de la membresía bajo la transacción
+                        int duracion = 0;
+                        string unidadDuracion = "Meses";
+                        decimal precioMembresia = 0;
+                        bool membresiaExiste = false;
+
+                        string queryMembresia = "SELECT Duracion, UnidadDuracion, Precio FROM Membresias WHERE Id = @IdMembresia";
+                        using (SqlCommand cmdMembresia = new SqlCommand(queryMembresia, conn, transaccion))
+                        {
+                            cmdMembresia.Parameters.AddWithValue("@IdMembresia", idMembresia);
+                            using (SqlDataReader reader = cmdMembresia.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    membresiaExiste = true;
+                                    duracion = reader.GetInt32(0);
+                                    unidadDuracion = reader.IsDBNull(1) ? "Meses" : reader.GetString(1);
+                                    if (!reader.IsDBNull(2))
+                                        precioMembresia = reader.GetDecimal(2);
+                                }
+                            }
+                        }
+
+                        if (!membresiaExiste)
+                        {
+                            transaccion.Rollback();
+                            return false;
+                        }
+
+                        // 3. Calcular vigencia atómicamente dentro de la transacción
+                        var (nuevaFechaInicio, nuevaFechaFin) = VigenciaCalculador.CalcularVigencia(
+                            fechaInicioActual,
+                            fechaFinActual,
+                            fechaOperacion,
+                            duracion,
+                            unidadDuracion
+                        );
+
+                        decimal montoFinal = monto ?? precioMembresia;
+
+                        // 4. Actualizar fechas, membresía y estado 'Activo' del miembro
+                        string updateMiembro = @"
+                            UPDATE Miembros
+                            SET FechaInicio = @Inicio,
+                                FechaFin = @Fin,
+                                IdMembresia = @IdMembresia,
+                                Estado = 'Activo'
+                            WHERE Id = @IdMiembro";
+
+                        using (SqlCommand cmdUpdate = new SqlCommand(updateMiembro, conn, transaccion))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@Inicio", nuevaFechaInicio);
+                            cmdUpdate.Parameters.AddWithValue("@Fin", nuevaFechaFin);
+                            cmdUpdate.Parameters.AddWithValue("@IdMembresia", idMembresia);
+                            cmdUpdate.Parameters.AddWithValue("@IdMiembro", idMiembro);
+
+                            int rowsUpdated = cmdUpdate.ExecuteNonQuery();
+                            if (rowsUpdated <= 0)
+                            {
+                                transaccion.Rollback();
+                                return false;
+                            }
+                        }
+
+                        // 5. Insertar registro en la tabla Pagos
+                        string insertPago = "INSERT INTO Pagos (IdMembresia, Fecha, Monto) VALUES (@IdMembresia, @Fecha, @Monto)";
+                        using (SqlCommand cmdPago = new SqlCommand(insertPago, conn, transaccion))
+                        {
+                            cmdPago.Parameters.AddWithValue("@IdMembresia", idMembresia);
+                            cmdPago.Parameters.AddWithValue("@Fecha", fechaOperacion);
+                            cmdPago.Parameters.AddWithValue("@Monto", montoFinal);
+
+                            int rowsPago = cmdPago.ExecuteNonQuery();
+                            if (rowsPago <= 0)
+                            {
+                                transaccion.Rollback();
+                                return false;
+                            }
+                        }
+
+                        transaccion.Commit();
+                        NotificadorCambioMiembro.Notificar();
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        try { transaccion.Rollback(); } catch { }
+                        throw;
+                    }
+                }
+            }
+        }
+
+
+        public int ActualizarEstadosMasivo(DateTime? fechaReferencia = null)
+        {
+            DateTime fecha = fechaReferencia ?? DateTime.Now;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlTransaction transaccion = conn.BeginTransaction();
+                string query = @"
+                    UPDATE Miembros
+                    SET estado = CASE
+                        WHEN fechaInicio <= @fecha AND fechaFin >= @fecha THEN 'Activo'
+                        ELSE 'Inactivo'
+                    END
+                    WHERE fechaInicio IS NOT NULL AND fechaFin IS NOT NULL";
 
-                try
+                using (SqlCommand command = new SqlCommand(query, conn))
                 {
-                    // 1. Registrar membresía 
-                    string queryMembresia = "UPDATE Miembros SET FechaInicio = @Inicio, FechaFin = @Fin, IdMembresia = @IdMembresia WHERE Id = @IdMiembro";
-
-                    using (SqlCommand cmdMembresia = new SqlCommand(queryMembresia, conn, transaccion))
-                    {
-                        cmdMembresia.Parameters.AddWithValue("@Inicio", fechaInicio);
-                        cmdMembresia.Parameters.AddWithValue("@Fin", fechaFin);
-                        cmdMembresia.Parameters.AddWithValue("@IdMembresia", idMembresia);
-                        cmdMembresia.Parameters.AddWithValue("@IdMiembro", idMiembro);
-                        cmdMembresia.ExecuteNonQuery();
-                    }
-
-                    // 2. Obtener precio de la membresía
-                    decimal monto = 0;
-                    string queryPrecio = "SELECT Precio FROM Membresias WHERE id = @IdMembresia";
-                    using (SqlCommand cmdPrecio = new SqlCommand(queryPrecio, conn, transaccion))
-                    {
-                        cmdPrecio.Parameters.AddWithValue("@IdMembresia", idMembresia);
-                        object result = cmdPrecio.ExecuteScalar();
-                        if (result != null)
-                            monto = Convert.ToDecimal(result);
-                    }
-
-                    // 3. Insertar en tabla Pagos
-                    string queryPago = "INSERT INTO Pagos (IdMembresia, Fecha, Monto) VALUES (@IdMembresia, @Fecha, @Monto)";
-                    using (SqlCommand cmdPago = new SqlCommand(queryPago, conn, transaccion))
-                    {
-                        cmdPago.Parameters.AddWithValue("@IdMembresia", idMembresia);
-                        cmdPago.Parameters.AddWithValue("@Fecha", fechaInicio);
-                        cmdPago.Parameters.AddWithValue("@Monto", monto);
-                        cmdPago.ExecuteNonQuery();
-                    }
-
-                    transaccion.Commit();
-                    exito = true;
-                }
-                catch (Exception ex)
-                {
-                    transaccion.Rollback();
-                    MessageBox.Show("Error al registrar en tabla pagos: " + ex.Message);
+                    command.Parameters.AddWithValue("@fecha", fecha);
+                    int affected = command.ExecuteNonQuery();
+                    NotificadorCambioMiembro.Notificar();
+                    return affected;
                 }
             }
-
-            return exito;
         }
 
         public List<Miembros_agregar> ObtenerTodosLosMiembros()
@@ -257,13 +369,12 @@ namespace Gym_System.Core
                 command.Parameters.AddWithValue("@estado", nuevoEstado);
                 command.Parameters.AddWithValue("@id", id);
                 command.ExecuteNonQuery();
+                NotificadorCambioMiembro.Notificar();
             }
         }
 
         public bool RegistrarPagoHistorial(long idMembresia, DateTime fechaPago, decimal monto)
         {
-          
-
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -282,31 +393,33 @@ namespace Gym_System.Core
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al registrar en tabla pagos: " + ex.Message);
                 return false;
             }
         }
-        //Conexion para verificar Huella desde UCVerifyFingerprint
-        public byte[] ObtenerHuella(int idMiembro)
+        /// <summary>
+        /// Obtiene la plantilla biométrica (XML) asociada a un miembro desde la base de datos.
+        /// La huella se almacena como NVARCHAR(MAX) en formato XML serializado por el SDK DigitalPersona.
+        /// </summary>
+        /// <param name="idMiembro">Identificador único del miembro (columna id en tabla Miembros).</param>
+        /// <returns>Cadena XML de la huella, o null si no se encuentra o es nula.</returns>
+        public string ObtenerHuella(long idMiembro)
         {
-            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=SistemaGimnasio;Integrated Security=True";
-            byte[] plantillaHuella = null;
-
-            string query = "SELECT Huella FROM Miembros WHERE IdMiembro = @IdMiembro";
+            string plantillaHuella = null;
+            string query = "SELECT huella FROM Miembros WHERE id = @id";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@IdMiembro", idMiembro);
+                cmd.Parameters.AddWithValue("@id", idMiembro);
 
                 conn.Open();
 
                 var result = cmd.ExecuteScalar();
-                if (result != DBNull.Value)
+                if (result != null && result != DBNull.Value)
                 {
-                    plantillaHuella = (byte[])result;
+                    plantillaHuella = result.ToString();
                 }
             }
 

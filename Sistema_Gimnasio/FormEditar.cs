@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +52,7 @@ namespace Sistema_Gimnasio
 
                 Miembro_Conexion conexion = new Miembro_Conexion();
                 conexion.ActualizarMiembro(miembro); // Método que actualiza en base al ID
+                BiometricApp.BiometricCache.Invalidar();
 
                 MessageBox.Show("Datos actualizados.");
                 this.Close();

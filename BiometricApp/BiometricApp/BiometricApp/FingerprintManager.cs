@@ -1,4 +1,4 @@
-﻿using DPUruNet;
+using DPUruNet;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -48,8 +48,12 @@ namespace BiometricApp
         // Estado de enrolamiento
         private readonly List<Fmd> _enrollFmds = new List<Fmd>();
         private int _enrollCount = 0;
-// En FingerprintManager.cs — línea de la constante:
-public const int CAPTURAS_REQUERIDAS = 4;
+        public const int CAPTURAS_REQUERIDAS = 4;
+
+        public bool IsOpen => _isOpen;
+        public Modo ModoActual => _modoActual;
+        public bool EstaCapturando => _capturandoFlag == 1;
+
         #endregion
 
         #region EVENTOS
@@ -65,7 +69,7 @@ public const int CAPTURAS_REQUERIDAS = 4;
 
         /// <summary>
         /// Una huella fue capturada en modo Verificacion.
-        /// El suscriptor (UCVerifyFingerprint) hace la comparación contra la BD.
+        /// El suscriptor (UCVerifyFingerprint) hace la comparación contra la caché.
         /// </summary>
         public event EventHandler<Fmd> HuellaParaVerificar;
 
@@ -97,8 +101,8 @@ public const int CAPTURAS_REQUERIDAS = 4;
         #region INICIALIZAR / CERRAR
 
         /// <summary>
-        /// Abre el lector físico. Llamar una sola vez al inicio de la app.
-        /// Devuelve true si el lector quedó listo, false si no hay lector o falló.
+        /// Abre el lector físico. Llamar una sola vez al inicio de la app o al reintentar conexión.
+        /// Devuelve true si el lector quedó listo, false si no hay lector o falló la apertura.
         /// </summary>
         public bool Inicializar()
         {
@@ -110,7 +114,8 @@ public const int CAPTURAS_REQUERIDAS = 4;
 
                 if (readers == null || readers.Count == 0)
                 {
-                    ErrorLector?.Invoke(this, "No se encontró lector de huellas.");
+                    _isOpen = false;
+                    NotificarErrorLector("No se encontró lector de huellas conectado.");
                     return false;
                 }
 
@@ -120,7 +125,10 @@ public const int CAPTURAS_REQUERIDAS = 4;
 
                 if (result != Constants.ResultCode.DP_SUCCESS)
                 {
-                    ErrorLector?.Invoke(this, "Error al abrir lector: " + result);
+                    try { _reader.Dispose(); } catch { }
+                    _reader = null;
+                    _isOpen = false;
+                    NotificarErrorLector("Error al abrir lector: " + result);
                     return false;
                 }
 
@@ -130,14 +138,16 @@ public const int CAPTURAS_REQUERIDAS = 4;
             }
             catch (Exception ex)
             {
-                ErrorLector?.Invoke(this, "Excepción al inicializar: " + ex.Message);
+                try { _reader?.Dispose(); } catch { }
+                _reader = null;
+                _isOpen = false;
+                NotificarErrorLector("Excepción al inicializar lector: " + ex.Message);
                 return false;
             }
         }
 
         /// <summary>
-        /// Libera el lector físico completamente.
-        /// Llamar al cerrar la aplicación.
+        /// Libera el lector físico completamente, cancela capturas activas y desuscribe eventos.
         /// </summary>
         public void Dispose()
         {
@@ -145,21 +155,30 @@ public const int CAPTURAS_REQUERIDAS = 4;
 
             try { _reader?.CancelCapture(); } catch { }
 
-            // Esperar a que el SDK termine su callback actual antes de destruir
-            Thread.Sleep(400);
-
-            try
+            if (_reader != null)
             {
-                if (_reader != null)
+                // Espera mínima para permitir que termine cualquier callback en vuelo
+                Thread.Sleep(150);
+
+                try
                 {
                     _reader.On_Captured -= OnCaptured;
                     _reader.Dispose();
-                    _reader = null;
                 }
+                catch { }
+                _reader = null;
             }
-            catch { }
 
             _isOpen = false;
+            Interlocked.Exchange(ref _capturandoFlag, 0);
+
+            // Desuscribir todos los manejadores para prevenir fugas de memoria
+            HuellaParaVerificar = null;
+            ErrorLector = null;
+            ImagenCapturada = null;
+            EnrolamientoProgreso = null;
+            EnrolamientoCompleto = null;
+            EnrolamientoError = null;
 
             lock (_lockInstance)
             {
@@ -200,8 +219,8 @@ public const int CAPTURAS_REQUERIDAS = 4;
         }
 
         /// <summary>
-        /// Detiene la captura sin cerrar el lector.
-        /// El lector queda abierto para reanudar después.
+        /// Detiene la captura sin destruir el lector.
+        /// El lector queda listo para reanudar operaciones.
         /// </summary>
         public void Detener()
         {
@@ -214,8 +233,19 @@ public const int CAPTURAS_REQUERIDAS = 4;
 
         #region CAPTURA INTERNA
 
+        public static Action SeamAlIniciarCaptura { get; set; }
+        private static long _totalIniciosCaptura = 0;
+        public static long TotalIniciosCaptura => Interlocked.Read(ref _totalIniciosCaptura);
+
         private void IniciarCaptura()
         {
+            Interlocked.Increment(ref _totalIniciosCaptura);
+            try
+            {
+                SeamAlIniciarCaptura?.Invoke();
+            }
+            catch { }
+
             if (!_isOpen || _reader == null || _modoActual == Modo.Ninguno) return;
 
             // Evitar doble llamada simultánea con Interlocked (seguro entre hilos)
@@ -223,6 +253,19 @@ public const int CAPTURAS_REQUERIDAS = 4;
 
             try
             {
+                if (_reader.Capabilities == null ||
+                    _reader.Capabilities.Resolutions == null ||
+                    _reader.Capabilities.Resolutions.Length == 0)
+                {
+                    Interlocked.Exchange(ref _capturandoFlag, 0);
+                    _isOpen = false;
+                    _modoActual = Modo.Ninguno;
+                    try { _reader?.Dispose(); } catch { }
+                    _reader = null;
+                    NotificarErrorLector("El lector biométrico no responde o fue desconectado.");
+                    return;
+                }
+
                 var result = _reader.CaptureAsync(
                     Constants.Formats.Fid.ANSI,
                     Constants.CaptureProcessing.DP_IMG_PROC_DEFAULT,
@@ -232,71 +275,169 @@ public const int CAPTURAS_REQUERIDAS = 4;
                 {
                     Interlocked.Exchange(ref _capturandoFlag, 0);
 
-                    if (result != Constants.ResultCode.DP_DEVICE_BUSY)
-                        ErrorLector?.Invoke(this, "Error al iniciar captura: " + result);
+                    if (result == Constants.ResultCode.DP_DEVICE_FAILURE ||
+                        result == Constants.ResultCode.DP_INVALID_DEVICE)
+                    {
+                        _isOpen = false;
+                        _modoActual = Modo.Ninguno;
+                        try { _reader?.Dispose(); } catch { }
+                        _reader = null;
+                        NotificarErrorLector("El dispositivo biométrico fue desconectado.");
+                    }
+                    else if (result != Constants.ResultCode.DP_DEVICE_BUSY)
+                    {
+                        NotificarErrorLector("Error al iniciar captura: " + result);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Interlocked.Exchange(ref _capturandoFlag, 0);
-                ErrorLector?.Invoke(this, "Excepción en captura: " + ex.Message);
+                NotificarErrorLector("Excepción en captura: " + ex.Message);
             }
         }
 
         private void OnCaptured(CaptureResult captureResult)
         {
-            // Liberar la bandera — ya terminó esta captura
-            Interlocked.Exchange(ref _capturandoFlag, 0);
-
-            // Si se detuvo el modo mientras esperábamos, ignorar
-            if (_modoActual == Modo.Ninguno) return;
-
-            // Captura vacía o fallida — reintentar silenciosamente
-            if (captureResult.Data == null ||
-                captureResult.ResultCode != Constants.ResultCode.DP_SUCCESS)
+            try
             {
-                IniciarCaptura();
-                return;
+                // Liberar la bandera — ya concluyó el intento de captura
+                Interlocked.Exchange(ref _capturandoFlag, 0);
+
+                // Si se detuvo el modo mientras esperábamos, ignorar
+                if (_modoActual == Modo.Ninguno) return;
+
+                if (captureResult == null)
+                {
+                    IniciarCaptura();
+                    return;
+                }
+
+                // Manejo seguro ante desconexión física del hardware en caliente
+                if (captureResult.ResultCode == Constants.ResultCode.DP_DEVICE_FAILURE ||
+                    captureResult.ResultCode == Constants.ResultCode.DP_INVALID_DEVICE)
+                {
+                    _isOpen = false;
+                    _modoActual = Modo.Ninguno;
+                    try { _reader?.Dispose(); } catch { }
+                    _reader = null;
+                    NotificarErrorLector("El lector biométrico fue desconectado o presentó una falla de hardware.");
+                    return;
+                }
+
+                // Captura vacía o incompleta — reintentar captura silenciosamente
+                if (captureResult.Data == null ||
+                    captureResult.ResultCode != Constants.ResultCode.DP_SUCCESS)
+                {
+                    IniciarCaptura();
+                    return;
+                }
+
+                // Notificar imagen capturada si existen vistas válidas
+                if (captureResult.Data.Views != null)
+                {
+                    foreach (Fid.Fiv fiv in captureResult.Data.Views)
+                    {
+                        if (fiv != null && fiv.RawImage != null)
+                        {
+                            ImagenCapturada?.Invoke(this,
+                                new ImagenCapturaEventArgs(fiv.RawImage, fiv.Width, fiv.Height));
+                            break;
+                        }
+                    }
+                }
+
+                // Extraer características minucias (FMD)
+                var conversionResult = FeatureExtraction.CreateFmdFromFid(
+                    captureResult.Data,
+                    Constants.Formats.Fmd.ANSI);
+
+                if (conversionResult.ResultCode != Constants.ResultCode.DP_SUCCESS || conversionResult.Data == null)
+                {
+                    IniciarCaptura();
+                    return;
+                }
+
+                Fmd fmd = conversionResult.Data;
+
+                if (_modoActual == Modo.Verificacion)
+                {
+                    ProcesarVerificacion(fmd);
+                }
+                else if (_modoActual == Modo.Enrolamiento)
+                {
+                    ProcesarEnrolamiento(fmd);
+                }
             }
-
-            // Disparar imagen a los suscriptores (frmDBEnrollment la muestra en pbFingerprint)
-            foreach (Fid.Fiv fiv in captureResult.Data.Views)
+            catch (Exception ex)
             {
-                ImagenCapturada?.Invoke(this,
-                    new ImagenCapturaEventArgs(fiv.RawImage, fiv.Width, fiv.Height));
-                break; // solo la primera vista es necesaria
-            }
-
-            // Convertir imagen a FMD (minucias)
-            var conversionResult = FeatureExtraction.CreateFmdFromFid(
-                captureResult.Data,
-                Constants.Formats.Fmd.ANSI);
-
-            if (conversionResult.ResultCode != Constants.ResultCode.DP_SUCCESS)
-            {
-                IniciarCaptura();
-                return;
-            }
-
-            Fmd fmd = conversionResult.Data;
-
-            if (_modoActual == Modo.Verificacion)
-            {
-                ProcesarVerificacion(fmd);
-            }
-            else if (_modoActual == Modo.Enrolamiento)
-            {
-                ProcesarEnrolamiento(fmd);
+                NotificarErrorLector("Excepción al procesar captura biométrica: " + ex.Message);
             }
         }
 
-        private void ProcesarVerificacion(Fmd fmd)
+        /// <summary>
+        /// Invoca defensivamente a cada suscriptor de HuellaParaVerificar de forma aislada.
+        /// Si un suscriptor lanza una excepción, se notifica ErrorLector y se continúa con los demás.
+        /// </summary>
+        private void NotificarHuellaParaVerificar(Fmd fmd)
         {
-            // Notificar al suscriptor con la huella capturada
-            HuellaParaVerificar?.Invoke(this, fmd);
+            var handlers = HuellaParaVerificar;
+            if (handlers == null) return;
 
-            // Reiniciar captura para la siguiente verificación
-            IniciarCaptura();
+            foreach (EventHandler<Fmd> handler in handlers.GetInvocationList())
+            {
+                try
+                {
+                    handler?.Invoke(this, fmd);
+                }
+                catch (Exception ex)
+                {
+                    NotificarErrorLector("Excepción en suscriptor de verificación: " + ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Invoca defensivamente a cada suscriptor de ErrorLector de forma aislada.
+        /// Si un suscriptor lanza una excepción, se aísla y se continúa con los demás.
+        /// </summary>
+        public void NotificarErrorLector(string mensaje)
+        {
+            var handlers = ErrorLector;
+            if (handlers == null) return;
+
+            foreach (EventHandler<string> handler in handlers.GetInvocationList())
+            {
+                try
+                {
+                    handler?.Invoke(this, mensaje);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Excepción en suscriptor de ErrorLector: " + ex.Message);
+                }
+            }
+        }
+
+        internal void ProcesarVerificacion(Fmd fmd)
+        {
+            try
+            {
+                NotificarHuellaParaVerificar(fmd);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    NotificarErrorLector("Excepción en verificación: " + ex.Message);
+                }
+                catch { }
+            }
+            finally
+            {
+                // Garantizar la reanudación de captura para la siguiente verificación
+                IniciarCaptura();
+            }
         }
 
         private void ProcesarEnrolamiento(Fmd fmd)
@@ -310,12 +451,10 @@ public const int CAPTURAS_REQUERIDAS = 4;
                 conteoActual = _enrollCount;
             }
 
-            // Notificar progreso (el formulario actualiza su label)
             EnrolamientoProgreso?.Invoke(this, conteoActual);
 
             if (conteoActual >= CAPTURAS_REQUERIDAS)
             {
-                // Intentar generar la plantilla final
                 DataResult<Fmd> resultEnrollment;
 
                 lock (_enrollFmds)
@@ -327,13 +466,11 @@ public const int CAPTURAS_REQUERIDAS = 4;
 
                 if (resultEnrollment.ResultCode == Constants.ResultCode.DP_SUCCESS)
                 {
-                    // Detener modo enrolamiento ANTES de disparar el evento
                     _modoActual = Modo.Ninguno;
                     EnrolamientoCompleto?.Invoke(this, resultEnrollment.Data);
                 }
                 else
                 {
-                    // Falló — reiniciar enrolamiento automáticamente
                     lock (_enrollFmds)
                     {
                         _enrollFmds.Clear();
@@ -346,8 +483,51 @@ public const int CAPTURAS_REQUERIDAS = 4;
             }
             else
             {
-                // Aún faltan capturas
                 IniciarCaptura();
+            }
+        }
+
+        #endregion
+
+        #region SEAMS Y PRUEBAS SIN HARDWARE
+
+        /// <summary>
+        /// Permite simular una captura biométrica para pruebas sin lector físico conectado.
+        /// </summary>
+        public void SimularHuellaCapturada(Fmd fmd)
+        {
+            if (_modoActual == Modo.Enrolamiento)
+            {
+                ProcesarEnrolamiento(fmd);
+            }
+            else
+            {
+                ProcesarVerificacion(fmd);
+            }
+        }
+
+        /// <summary>
+        /// Permite simular un error o desconexión del lector en pruebas automatizadas.
+        /// </summary>
+        public void SimularErrorLector(string mensaje)
+        {
+            NotificarErrorLector(mensaje);
+        }
+
+        /// <summary>
+        /// Reinicia el singleton para pruebas aisladas.
+        /// </summary>
+        public static void ResetearParaPruebas()
+        {
+            lock (_lockInstance)
+            {
+                if (_instance != null)
+                {
+                    _instance.Dispose();
+                    _instance = null;
+                }
+                SeamAlIniciarCaptura = null;
+                Interlocked.Exchange(ref _totalIniciosCaptura, 0);
             }
         }
 

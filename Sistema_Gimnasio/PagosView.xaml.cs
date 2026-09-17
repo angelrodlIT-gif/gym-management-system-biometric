@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -87,11 +87,7 @@ namespace Sistema_Gimnasio
 
             // Cargar filtrado si hay cambio en las fechas
             var datosFiltrados = pagosConexion.ReportePagosConNombreMembresia(inicio, fin);
-
-            if (datosFiltrados != null && datosFiltrados.Count > 0)
-            {
-                ReporteMembresiasFiltradas = datosFiltrados;
-            }
+            ReporteMembresiasFiltradas = datosFiltrados ?? new ObservableCollection<Pagos_agregar>();
             // Total general de visitas
             var (totalVisitas, totalVisitasIds) = pagosConexion.ObtenerTotalesVisitasPorFecha(inicio, fin);
             txtTotalPagadoVisitas.Text = totalVisitas.ToString("C");

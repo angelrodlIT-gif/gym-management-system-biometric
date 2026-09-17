@@ -31,6 +31,9 @@ Para garantizar la integridad técnica y arquitectónica del repositorio, todo c
 | :--- | :--- | :--- | :--- |
 | **Fase 0** | **READY** (por Luna) | **Staged** | Saneamiento de artefactos rastreados, `.gitignore` y referencias relativas a `libs/`. |
 | **Fase 1** | **READY** (por Luna) | **No Staged** (Working Tree) | Saneamiento de `SistemaGimnasio.sql`, paridad `App.config`, corrección en `Miembros_Conexion.cs` y script de validación. |
+| **Fase 2** | **READY** (por Luna) | **No Staged** (Working Tree) | Optimización N+1, desacoplamiento UI en Core, atomicidad en RegistrarPago, vigencia acumulativa y corrección de reportes financieros. |
+| **Fase 3** | **READY** (por Luna / Hardware físico probado) | **No Staged** (Working Tree) | Optimización 1:N con BiometricCache en memoria, eliminación de recargas SQL y deserialización XML por lectura, supresión de conexiones SQL compartidas, ciclo de vida robusto y tolerancia a desconexión del lector. |
+| **Fase 4** | **Implementada** (pendiente auditoría Luna) | **No Staged** (Working Tree) | Manuales integrales de despliegue, operaciones y troubleshooting en Docs/, scripts seguros de respaldo/restore drill, automatización de retención y validación determinista en test-phase4.ps1. |
 | **Aceptación Global**| **Pendiente** | N/A | El usuario **no ha declarado GREEN** aún. |
 | **Artefacto Binario**| N/A | **Untracked** | `Docs/Images.zip` debe permanecer **no rastreado** (untracked). |
 
@@ -54,6 +57,55 @@ Para garantizar la integridad técnica y arquitectónica del repositorio, todo c
 - **Herramienta de verificación:** Creación de `scripts/verify-reproducibility.ps1` para validación estática automatizada de configuración, codificación y consistencia.
 - **Documentación:** Actualización de `README.md` documentando comandos y notas de verificación local.
 
+#### Fase 2: Bugs Funcionales Críticos, Pagos y Estado de Membresía (No Staged)
+- **Optimización N+1 de estados:** Reemplazo de bucles iterativos por el método masivo `ActualizarEstadosMasivo()` en `Miembro_Conexion`, ejecutando una única consulta SQL `UPDATE` con expresión condicional `CASE`. Supresión de `MessageBox.Show` repetitivo en actualizaciones automáticas de `MiembrosView.xaml.cs`.
+- **Desacoplamiento total de UI en Core:** Eliminación de `using System.Windows.Forms;`, de todas las llamadas a `MessageBox.Show` en `Gym_System.Core` y eliminación definitiva de la referencia `<Reference Include="System.Windows.Forms" />` en `Gym_System.Core.csproj`.
+- **Prevención de condición de carrera y atomicidad en `RegistrarPago`:** Lectura de vigencia previa con bloqueo de fila (`UPDLOCK, ROWLOCK`), lectura de membresía, cálculo determinista con `VigenciaCalculador`, actualización a `Estado = 'Activo'` e inserción en `Pagos` consolidados dentro de la misma `SqlTransaction`. `PagoButWindow.xaml.cs` delega atómicamente a esta transacción.
+- **Validación de filas afectadas:** `RegistrarPago` valida explícitamente `rowsAffected > 0` tanto en actualización como en inserción; si el miembro o membresía no existe, ejecuta rollback inmediato y retorna `false`.
+- **Saneamiento de reportes y rangos de fecha (`Pagos_conexion.cs`):**
+  - Supresión del producto cartesiano generado por `LEFT JOIN Pagos` superfluo en `ObtenerReporteMembresiasActivos`.
+  - Tratamiento inclusivo de fechas mediante rangos semiabiertos `< FinExclusivo` en `ObtenerPagosPorSemanaDelMesActual`, `ObtenerPagosSemanaActual` y `ObtenerTotalesVisitasPorFecha`.
+  - Corrección semántica en `ObtenerPagosRecientes`: eliminación del `JOIN` espurio `p.ID = m.id`, ajustando la consulta y la vista `InicioView.xaml` al esquema real de `Pagos`.
+- **Robustez en scripts de verificación (`scripts/`):**
+  - Compilación dinámica en memoria de `VigenciaCalculador.cs` vía Roslyn `csc.exe` en `test-phase2.ps1` y `verify-reproducibility.ps1` para garantizar ejecución contra el código fuente actual y evitar DLL stale.
+  - Adición de checks automáticos para verificar la ausencia de `System.Windows.Forms` en el `.csproj`, validación de filas afectadas en `RegistrarPago`, rangos semiabiertos y ausencia de joins inválidos.
+  - Saneamiento completo de espacios en blanco finales (`git diff --check`).
+
+#### Fase 3: Robustez Biométrica, Caché Versionada y Desacoplamiento (No Staged)
+- **Caché en memoria de plantillas (`BiometricCache.cs`):** Implementación de la clase `BiometricCache` con almacenamiento en RAM de registros deserializados `DPUruNet.Fmd`. La verificación 1:N consulta la caché precargada sin ejecutar consultas SQL a la tabla completa ni deserializaciones repetitivas de XML en cada lectura física. Opera sobre un snapshot inmutable copy-on-write para garantizar atomicidad y seguridad multihilo.
+- **Invalidación sincronizada y versionada (Anti-Race Condition):** `Invalidar()` incrementa un contador `_version` bajo sincronización thread-safe. `CargarPlantillas()` serializa recargas concurrentes con `_reloadLock`, captura la versión antes de leer datos y verifica que coincida antes de publicar; si ocurrió una invalidación concurrente durante la lectura, descarta la publicación obsoleta, mantiene la caché sucia y recarga automáticamente.
+- **Estado de error, backoff y cooldown ante caídas de SQL:** `BiometricCache` implementa `EnCooldown`, `CooldownFalloSegundos` y `UltimoErrorCarga`. Ante fallos de conexión o lectura, entra en un periodo de enfriamiento que omite consultas SQL repetitivas en cada escaneo, previniendo bloqueos y saturación del callback de captura, reportando error de forma segura.
+- **Desacoplamiento arquitectónico estricto de `Gym_System.Core`:** Eliminación definitiva de la referencia a `BiometricApp.csproj` y supresión de llamadas directas a `BiometricCache` o bloques `catch {}` opacos en `Miembros_Conexion.cs`. Introducción del seam neutral `NotificadorCambioMiembro` en Core. Las invalidaciones se realizan desde adaptadores/UI (`FormAgregar.cs`, `FormEditar.cs`, `MiembrosView.xaml.cs`, `PagoButWindow.xaml.cs`) y el cableado del seam se realiza al inicio en `App.xaml.cs`.
+- **Supresión de conexiones SQL compartidas:** Eliminación de los campos `conn` (`SqlConnection`) de larga vida en `UCVerifyFingerprint.cs` y `frmDBEnrollment.cs`, eliminando condiciones de carrera y colisiones multihilo. En `BiometricCache`, la carga desde base de datos utiliza conexiones de ámbito local estrictamente gestionadas con bloques `using`.
+- **Ruta segura garantizada en `FingerprintManager.ProcesarVerificacion`:** Envoltura del evento `HuellaParaVerificar` en un bloque `try-catch-finally`, garantizando la ejecución incondicional de `IniciarCaptura()` en `finally` aun cuando los suscriptores lancen excepciones, y notificando `ErrorLector` de forma segura sin tragar errores silenciosamente.
+- **Ciclo de vida y liberación de recursos de hardware:**
+  - `SistemaAcceso.xaml.cs`: Desuscripción explícita del evento `HuellaVerificada`, invocación de `verificador.DetenerLector()`, desvinculación de `winFormsHost.Child = null` y llamada a `verificador.Dispose()` en `OnClosed` y reinicio.
+  - `UCVerifyFingerprint.cs`: Desuscripción de eventos al detener o destruir el control, liberación de `Image` en `PictureBox` para prevenir fugas de GDI+, y eliminación del campo compartido `conn`.
+  - `frmDBEnrollment.cs`: Desuscripción completa de eventos en `FormClosing` y `Dispose()`, liberación de bitmaps y supresión de `conn`.
+  - `FormAgregar.cs`: Limpieza y cierre seguro del formulario secundario `frmDBEnrollment` al cerrar o cambiar de pestaña.
+  - `FingerprintManager.cs`: Supresión de manejadores de eventos, cancelación de capturas y llamada a `_reader.Dispose()` en `Dispose()`, limpiando la instancia singleton.
+- **Tolerancia a desconexión y ausencia de hardware:**
+  - Manejo seguro de códigos de fallo de hardware `DP_DEVICE_FAILURE` y `DP_INVALID_DEVICE` en `IniciarCaptura()` y `OnCaptured()`, previniendo bucles infinitos o bloqueos de UI.
+  - Protección de todo el callback `OnCaptured()` con bloques `try/catch` para evitar caídas del proceso por excepciones no controladas.
+  - Validación preventiva de `Capabilities` y `Resolutions` antes de iniciar capturas asíncronas.
+  - Manejo defensivo en interfaz gráfica verificando `IsHandleCreated` e `!IsDisposed`.
+- **Seams y pruebas automatizadas robustas (`scripts/test-phase3.ps1`):**
+  - Compilación dinámica en memoria mediante Roslyn `csc.exe` sin dependencias de binarios obsoletos (stale DLL fallback eliminado).
+  - Pruebas unitarias de matching 1:N, eficiencia de caché (1 carga para 10 escaneos), recarga selectiva bajo demanda y mutación in-memory copy-on-write.
+  - Seams deterministas para validación de carrera de versión (`SeamDuranteCarga`), cooldown/backoff de fallos (`SimularFalloCarga`, `SeamTiempoActual`), y ejecución garantizada de `IniciarCaptura` en `finally` ante excepciones de suscriptores.
+  - Documentación explícita de limitaciones: pruebas automatizadas operan sobre emulación de software y mocks, sin afirmar interacción con hardware físico real.
+  - Integración de validaciones de Fase 3 en `scripts/verify-reproducibility.ps1`.
+
+#### Fase 4: Documentación Operativa y Despliegue (No Staged)
+- **Manual integral de despliegue (`Docs/DEPLOYMENT.md`):** Guía en español para topologías monopuesto y en red, instalación de SQL Server Express, ejecución de `database/SistemaGimnasio.sql`, política estricta de permisos mínimos (*least-privilege* con `db_datareader`/`db_datawriter`), explicación técnica de `Integrated Security=True`, configuración paritaria de `GymDbConnection` e instalación del runtime de DigitalPersona U.are.U 4500 (x86/x64).
+- **Manual de operación y respaldos (`Docs/OPERATIONS.md`):** Justificación y recomendación del modelo de recuperación `SIMPLE` para prevenir explosión del log de transacciones, scripts seguros de respaldo parametrizado con `WITH CHECKSUM` y `RESTORE VERIFYONLY`, automatización PowerShell con política de retención (`scripts/Backup-Database.ps1`), simulacro seguro de restauración aislada en `SistemaGimnasio_Drill` (`scripts/restore-drill.sql`) sin afectar producción, y mantenimiento del hardware óptico y caché in-memory.
+- **Guía de troubleshooting (`Docs/TROUBLESHOOTING.md`):** Árboles de diagnóstico y mitigación para errores de red SQL (26, 40, 18456), detección física del sensor USB (`DP_DEVICE_FAILURE`, `DP_INVALID_DEVICE`), factores de rechazo en huellas (prisma, piel reseca, re-enrolamiento con 4 tomas), comportamiento del cooldown de protección en `BiometricCache` ante caídas de base de datos, y resolución de errores de build y paquetes NuGet.
+- **Scripts operativos y de verificación (`scripts/`):**
+  - `scripts/backup-database.sql`: Respaldo T-SQL seguro y parametrizado.
+  - `scripts/restore-drill.sql`: Simulacro de restauración con reubicación `WITH MOVE` en base aislada.
+  - `scripts/Backup-Database.ps1`: Automatización desatendida con retención rotativa.
+  - `scripts/test-phase4.ps1`: Suite automatizada de comprobación de despliegue, referencias a archivos reales, ausencia de secretos, consistencia de configuración y calidad de formato.
+
 ---
 
 ## 3. Comandos de Verificación Existentes
@@ -70,8 +122,30 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-reproducibility.ps1
 - Referencias del SDK DigitalPersona apuntando a `libs/` y existencia de binarios.
 - Formato UTF-8 estricto y ausencia de bytes nulos en `database/SistemaGimnasio.sql`.
 - Inexistencia de binarios rastreados indebidamente fuera de `libs/`.
+- Ausencia de MessageBox y WinForms en `Gym_System.Core`.
+- Optimización masiva de estados y prevención N+1.
+- Atomicidad en transacciones de pagos.
+- Inexistencia de productos cartesianos y rangos semiabiertos en reportes financieros.
+- Inexistencia de conexiones SQL compartidas en controles biométricos.
+- Uso de caché biométrica sin recarga SQL ni deserialización XML por lectura.
+- Tolerancia a desconexión de hardware y ciclo de vida de recursos.
 
-### 2. Compilación de la Solución (MSBuild)
+### 2. Pruebas Automatizadas de Fase 2 (PowerShell)
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/test-phase2.ps1
+```
+
+### 3. Pruebas Automatizadas de Fase 3 (PowerShell)
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/test-phase3.ps1
+```
+
+### 4. Pruebas Automatizadas de Fase 4 (PowerShell)
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/test-phase4.ps1
+```
+
+### 5. Compilación de la Solución (MSBuild)
 Desde Developer PowerShell / símbolo del sistema de Visual Studio:
 ```powershell
 msbuild Sistema_Gimnasio.sln /p:Configuration=Debug

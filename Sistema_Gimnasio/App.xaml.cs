@@ -1,4 +1,4 @@
-﻿using BiometricApp;
+using BiometricApp;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,6 +14,12 @@ namespace Sistema_Gimnasio
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            Gym_System.Core.NotificadorCambioMiembro.OnMiembroModificado = BiometricCache.Invalidar;
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             FingerprintManager.Instance.Dispose();

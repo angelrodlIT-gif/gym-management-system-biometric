@@ -36,7 +36,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,12 +53,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visitas_agregar.cs" />
     <Compile Include="Visitas_conexion.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\BiometricApp\BiometricApp\BiometricApp\BiometricApp.csproj">
-      <Project>{2d24cb66-ef25-4c7f-872a-dc5c975857b7}</Project>
-      <Name>BiometricApp</Name>
-    </ProjectReference>
+    <Compile Include="VigenciaCalculador.cs" />
+    <Compile Include="NotificadorCambioMiembro.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

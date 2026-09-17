@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
@@ -48,46 +48,37 @@ namespace Sistema_Gimnasio
         {
             if (cmbMembresias.SelectedItem is Membresias_agregar seleccionada)
             {
-                DateTime fechaInicio = datePickerPago.SelectedDate ?? DateTime.Today;
-                DateTime fechaFin;
-
-                // Determina si la duración es en días o meses
-                if (seleccionada.UnidadDuracion == "Meses")
+                try
                 {
-                    fechaFin = fechaInicio.AddMonths(seleccionada.Duracion);
-                }
-                else // Asumir "Días"
-                {
-                    fechaFin = fechaInicio.AddDays(seleccionada.Duracion);
-                }
+                    DateTime fechaPago = datePickerPago.SelectedDate ?? DateTime.Today;
+                    Miembro_Conexion conexion = new Miembro_Conexion();
 
-                long idMembresia = seleccionada.id;
-                decimal monto = seleccionada.Precio;
+                    long idMembresia = seleccionada.id;
+                    decimal monto = seleccionada.Precio;
 
-                Miembro_Conexion conexion = new Miembro_Conexion();
-                bool exito = conexion.RegistrarPago(_idMiembro, fechaInicio, fechaFin, idMembresia);
+                    // Registro atómico transaccional: calcula vigencia restante bajo bloqueo SQL,
+                    // actualiza fechas del miembro, estado Activo e inserta pago en una sola transacción.
+                    bool exito = conexion.RegistrarPago(_idMiembro, idMembresia, fechaPago, monto);
 
-                if (exito)
-                {
-                    bool pagoGuardado = conexion.RegistrarPagoHistorial(idMembresia, fechaInicio, monto);
-                    if (!pagoGuardado)
+                    if (exito)
                     {
-                        MessageBox.Show("Se registró la membresía, pero ocurrió un error al guardar el historial de pago.");
+                        BiometricApp.BiometricCache.Invalidar();
+                        MessageBox.Show("Pago registrado exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Pago registrado exitosamente.");
-                        this.Close();
+                        MessageBox.Show("Error al registrar el pago.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error al registrar el pago.");
+                    MessageBox.Show("Error al registrar el pago: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Selecciona una membresía.");
+                MessageBox.Show("Selecciona una membresía.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
